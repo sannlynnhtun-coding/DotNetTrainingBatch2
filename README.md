@@ -1,1 +1,3 @@
 # AKLMPSTYZDotNetCore
+
+Nuget Package = npm
