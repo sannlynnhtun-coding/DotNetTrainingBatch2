@@ -1,4 +1,5 @@
 ﻿using AKLMPSTYZDotNetCore.ConsoleApp.AdoDotNetExamples;
+using AKLMPSTYZDotNetCore.ConsoleApp.DapperExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -60,8 +61,11 @@ Console.WriteLine("Hello, World!");
 //    Console.WriteLine("-----------------");
 //}
 
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-adoDotNetExample.Run();
+//AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//adoDotNetExample.Run();
+
+DapperExample dapperExample = new DapperExample();
+dapperExample.Run();
 
 Console.ReadKey();
 //Console.ReadLine();
