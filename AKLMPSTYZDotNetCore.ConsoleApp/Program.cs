@@ -1,5 +1,6 @@
 ﻿using AKLMPSTYZDotNetCore.ConsoleApp.AdoDotNetExamples;
 using AKLMPSTYZDotNetCore.ConsoleApp.DapperExamples;
+using AKLMPSTYZDotNetCore.ConsoleApp.EFCoreExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -64,8 +65,11 @@ Console.WriteLine("Hello, World!");
 //AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 //adoDotNetExample.Run();
 
-DapperExample dapperExample = new DapperExample();
-dapperExample.Run();
+//DapperExample dapperExample = new DapperExample();
+//dapperExample.Run();
+
+EFCoreExample eFCoreExample = new EFCoreExample();
+eFCoreExample.Run();
 
 Console.ReadKey();
 //Console.ReadLine();
