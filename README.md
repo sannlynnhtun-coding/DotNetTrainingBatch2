@@ -1,5 +1,33 @@
-
 # AKLMPSTYZDotNetCore
+
+xml
+json 
+javascript object
+json object
+format / compress
+
+api
+
+http method
+-----------------
+get     => read
+post    => create
+put     => update
+patch   => update
+delete  => delete
+
+http status code
+-----------------
+200 - ok
+404 - not found
+500 - internal server error
+402, 403, 409
+
+100 - 199
+200 - 299
+300 - 399
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 https://stackoverflow.com/questions/17615260/the-certificate-chain-was-issued-by-an-authority-that-is-not-trusted-when-conn
 https://www.learnentityframeworkcore.com/walkthroughs/existing-database
