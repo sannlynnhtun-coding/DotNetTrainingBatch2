@@ -33,6 +33,9 @@ namespace AKLMPSTYZDotNetCore.ConsoleApp.RestClientExamples
             //await Edit(13);
             //await Edit(1002);
             await Create("Test Title", "Test Author", "Test Content");
+            //await Update(6, "New tg Title", "New tg Author", "New tg Content");
+            await Delete(7);
+
         }
 
         public async Task Read()
@@ -91,6 +94,31 @@ namespace AKLMPSTYZDotNetCore.ConsoleApp.RestClientExamples
             request.AddJsonBody(blog);
             var response = await client.ExecuteAsync(request);
 
+            Console.WriteLine(response.Content!);
+        }
+
+        public async Task Update(int id, string title, string author, string content)
+        {
+            BlogDataModel blog = new BlogDataModel
+            {
+                Blog_Title = title,
+                Blog_Author = author,
+                Blog_Content = content
+            };
+
+            RestClient client = new RestClient();
+            RestRequest request = new RestRequest($"{_blogEndpoint}/{id}", Method.Put);
+            request.AddJsonBody(blog);
+
+            RestResponse response = await client.ExecuteAsync(request);
+            Console.WriteLine(response.Content!);
+        }
+
+        public async Task Delete(int id)
+        {
+            RestClient client = new RestClient();
+            RestRequest request = new RestRequest($"{_blogEndpoint}/{id}", Method.Delete);
+            RestResponse response = await client.ExecuteAsync(request);
             Console.WriteLine(response.Content!);
         }
     }
