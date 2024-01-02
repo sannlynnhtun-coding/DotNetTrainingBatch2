@@ -1,6 +1,7 @@
 ﻿using AKLMPSTYZDotNetCore.ConsoleApp.AdoDotNetExamples;
 using AKLMPSTYZDotNetCore.ConsoleApp.DapperExamples;
 using AKLMPSTYZDotNetCore.ConsoleApp.EFCoreExamples;
+using AKLMPSTYZDotNetCore.ConsoleApp.HttpClientExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -68,8 +69,11 @@ Console.WriteLine("Hello, World!");
 //DapperExample dapperExample = new DapperExample();
 //dapperExample.Run();
 
-EFCoreExample eFCoreExample = new EFCoreExample();
-eFCoreExample.Run();
+//EFCoreExample eFCoreExample = new EFCoreExample();
+//eFCoreExample.Run();
+
+HttpClientExample httpClientExample = new HttpClientExample();
+await httpClientExample.Run();
 
 Console.ReadKey();
 //Console.ReadLine();

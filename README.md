@@ -49,15 +49,16 @@ Database First (Database Table => C# Class)
 - Console App
 
 - Ado.Net (CRUD)
-Dapper  (CRUD)
-EF Entity Framework (Code First => Create Table, Database First => use in Code) (CRUD)
+- Dapper  (CRUD)
+- EF Entity Framework (Code First => Create Table, Database First => use in Code) (CRUD)
 RepoDB
 
-Asp.Net Core Web Api (Rest Api)
-    Ado.Net
+- Asp.Net Core Web Api (Rest Api)
     - EF
-    Dapper
-Postman
+    - Dapper
+    - Ado.Net
+- Postman
+
 Api Call [Console]
     HttpClient
     RestClient
