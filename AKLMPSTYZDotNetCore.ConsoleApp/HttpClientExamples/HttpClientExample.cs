@@ -33,6 +33,8 @@ namespace AKLMPSTYZDotNetCore.ConsoleApp.HttpClientExamples
             //await Edit(13);
             //await Edit(1002);
             await Create("Test Title", "Test Author", "Test Content");
+            //await Update(4004, "New Title", "New Author", "New Content");
+            //await Delete(5);
         }
 
         public async Task Read()
@@ -86,6 +88,31 @@ namespace AKLMPSTYZDotNetCore.ConsoleApp.HttpClientExamples
 
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.PostAsync(_blogEndpoint, httpContent);
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+        }
+
+        public async Task Update(int id, string title, string author, string content)
+        {
+            BlogDataModel blog = new BlogDataModel
+            {
+                Blog_Title = title,
+                Blog_Author = author,
+                Blog_Content = content
+            };
+
+            string jonBlog = JsonConvert.SerializeObject(blog);
+
+            HttpContent httpContent = new StringContent(jonBlog, Encoding.UTF8, Application.Json);
+
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.PutAsync($"{_blogEndpoint}/{id}", httpContent);
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+        }
+
+        public async Task Delete(int id)
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.DeleteAsync($"{_blogEndpoint}/{id}");
             Console.WriteLine(await response.Content.ReadAsStringAsync());
         }
     }
