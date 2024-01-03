@@ -12,6 +12,7 @@ namespace AKLMPSTYZDotNetCore.ConsoleApp.HttpClientExamples
     public class HttpClientExample
     {
         private string _blogEndpoint = "https://localhost:7185/api/blog";
+
         public async Task Run()
         {
             // get

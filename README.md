@@ -1,5 +1,10 @@
 # AKLMPSTYZDotNetCore
 
+Dependency injection is a powerful technique that promotes loosely coupled, maintainable, and testable code. By applying dependency injection principles in your C# projects, you can achieve better modularity, reusability, and flexibility.
+
+https://github.com/reactiveui/refit
+https://restsharp.dev/authenticators.html
+
 xml
 json 
 javascript object

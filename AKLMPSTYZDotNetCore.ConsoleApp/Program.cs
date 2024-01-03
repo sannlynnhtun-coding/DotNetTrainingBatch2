@@ -2,6 +2,7 @@
 using AKLMPSTYZDotNetCore.ConsoleApp.DapperExamples;
 using AKLMPSTYZDotNetCore.ConsoleApp.EFCoreExamples;
 using AKLMPSTYZDotNetCore.ConsoleApp.HttpClientExamples;
+using AKLMPSTYZDotNetCore.ConsoleApp.RefitExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -72,8 +73,14 @@ Console.WriteLine("Hello, World!");
 //EFCoreExample eFCoreExample = new EFCoreExample();
 //eFCoreExample.Run();
 
-HttpClientExample httpClientExample = new HttpClientExample();
-await httpClientExample.Run();
+//HttpClientExample httpClientExample = new HttpClientExample();
+//await httpClientExample.Run();
+
+Console.WriteLine("Please wait for api...");
+Console.ReadKey();
+
+RefitExample refitExample = new RefitExample(); 
+await refitExample.Run();
 
 Console.ReadKey();
 //Console.ReadLine();
