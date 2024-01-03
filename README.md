@@ -1,5 +1,36 @@
 # AKLMPSTYZDotNetCore
 
+business1 => repo, data access 1 => data access 2
+business1 => repo, data access 2 => data access 2
+
+Repo
+- CRUD
+
+data access 1
+CRUD
+
+data access 2
+CRUD
+
+business1
+Transfer
+- Balance Check
+- From Account = - Amount
+- To Account = + Amount
+
+repo = data access 1
+
+data access 1
+check
+debit
+credit
+
+data access 2
+check
+debit
+credit
+
+
 Dependency injection is a powerful technique that promotes loosely coupled, maintainable, and testable code. By applying dependency injection principles in your C# projects, you can achieve better modularity, reusability, and flexibility.
 
 https://github.com/reactiveui/refit
