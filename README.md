@@ -95,10 +95,13 @@ RepoDB
     - Ado.Net
 - Postman
 
-Api Call [Console]
-    HttpClient
-    RestClient
-    Refit
+- Api Call [Console]
+    - HttpClient
+    - RestClient
+    - Refit
+
+html, css, javascript
+
 Asp.Net Core MVC
     Ado.Net
     EF
