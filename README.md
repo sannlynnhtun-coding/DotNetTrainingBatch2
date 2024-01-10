@@ -1,5 +1,22 @@
 # AKLMPSTYZDotNetCore
 
+
+- sweetalert https://sweetalert2.github.io/
+
+- notiflix https://notiflix.github.io/ Notify Report Confirm Loading Block
+
+- datatable https://datatables.net/examples/index https://datatables.net/ https://datatables.net/download/
+
+- ladda button https://cdnjs.com/libraries/ladda-bootstrap https://msurguy.github.io/ladda-bootstrap/ https://github.com/msurguy/ladda-bootstrap
+
+- datetime picker https://fengyuanchen.github.io/datepicker/ https://github.com/fengyuanchen/datepicker/blob/master/README.md https://github.com/fengyuanchen/datepicker/releases/tag/v1.0.10
+
+- radio checkbox https://bantikyan.github.io/icheck-bootstrap/ https://cdnjs.com/libraries/icheck-bootstrap https://github.com/bantikyan/icheck-bootstrap https://penguin-arts.com/how-to-check-if-a-checkbox-is-checked-using-icheck-library/
+
+- toast https://apvarun.github.io/toastify-js/# https://github.com/apvarun/toastify-js/blob/master/README.md
+
+- switch / toggle dark mode how to use theme
+
 business1 => repo, data access 1 => data access 2
 business1 => repo, data access 2 => data access 2
 
