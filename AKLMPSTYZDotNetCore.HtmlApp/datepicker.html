@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="plugins/datepicker-1.0.10/datepicker.min.css">
+</head>
+
+<body>
+    <input data-toggle="datepicker">
+    <textarea data-toggle="datepicker"></textarea>
+    <!-- <div data-toggle="datepicker"></div> -->
+
+    <input type="text" id="date-picker" />
+    <button type="button" id="test">test</button>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="plugins/datepicker-1.0.10/datepicker.min.js"></script>
+    <script>
+        $('[data-toggle="datepicker"]').datepicker();
+        $('#date-picker').datepicker({
+            format: 'dd-mm-yyyy',
+            autoHide: true,
+            trigger: '#test'
+        });
+    </script>
+</body>
+
+</html>
