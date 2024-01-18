@@ -117,7 +117,7 @@ RepoDB
     - RestClient
     - Refit
 
-html, css, javascript
+- html, css, javascript
 
 Asp.Net Core MVC
     Ado.Net
