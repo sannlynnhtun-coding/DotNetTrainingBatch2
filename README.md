@@ -124,15 +124,17 @@ Asp.Net Core MVC
     Ado.Net
     EF
     Dapper
+
+Chart [ApexChart, ChartJs, HighCharts, CanvasJS]
+
 Api Call [MVC]
     HttpClient
     RestClient
     Refit
+
 Minimal Api
 Text Logging
 Db Logging
-
-Chart [ApexChart, ChartJs, HighCharts, CanvasJS]
 
 SignalR - (Insert Data => UpdateChart, Chat Message)
 UI Design
