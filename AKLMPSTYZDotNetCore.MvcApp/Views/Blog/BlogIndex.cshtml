@@ -1,0 +1,9 @@
+﻿@model List<BlogDataModel>
+@{
+    ViewData["Title"] = "Blog List";
+}
+
+@foreach(var item in Model)
+{
+    <p>@item.Blog_Title</p>
+}
