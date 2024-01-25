@@ -1,15 +1,7 @@
-using AKLMPSTYZDotNetCore.MvcApp;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(opt =>
-{
-    string connectionString = builder.Configuration.GetConnectionString("DbConnection")!;
-    opt.UseSqlServer(connectionString);
-});
 
 var app = builder.Build();
 

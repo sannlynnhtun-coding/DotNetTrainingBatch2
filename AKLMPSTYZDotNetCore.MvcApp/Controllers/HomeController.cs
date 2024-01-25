@@ -15,6 +15,8 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("this is Home Page.");
+            _logger.LogWarning("this is Home Page.");
             return View();
         }
 
