@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AKLMPSTYZDotNetCore.RestApi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AKLMPSTYZDotNetCore.MinimalApi", "AKLMPSTYZDotNetCore.MinimalApi\AKLMPSTYZDotNetCore.MinimalApi.csproj", "{EE66962F-6E1A-407C-A82F-0E620FDE1A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AKLMPSTYZDotNetCore.MvcApp", "AKLMPSTYZDotNetCore.MvcApp\AKLMPSTYZDotNetCore.MvcApp.csproj", "{8E63FBEE-7BF4-4288-84FB-E5E6EA8CD5F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AKLMPSTYZDotNetCore.MvcApp", "AKLMPSTYZDotNetCore.MvcApp\AKLMPSTYZDotNetCore.MvcApp.csproj", "{7DC83F8C-EF02-4296-849F-6717B249E182}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +34,10 @@ Global
 		{EE66962F-6E1A-407C-A82F-0E620FDE1A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE66962F-6E1A-407C-A82F-0E620FDE1A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE66962F-6E1A-407C-A82F-0E620FDE1A26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E63FBEE-7BF4-4288-84FB-E5E6EA8CD5F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E63FBEE-7BF4-4288-84FB-E5E6EA8CD5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E63FBEE-7BF4-4288-84FB-E5E6EA8CD5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E63FBEE-7BF4-4288-84FB-E5E6EA8CD5F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DC83F8C-EF02-4296-849F-6717B249E182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC83F8C-EF02-4296-849F-6717B249E182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC83F8C-EF02-4296-849F-6717B249E182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC83F8C-EF02-4296-849F-6717B249E182}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
