@@ -1,0 +1,50 @@
+﻿<div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" id="Blog_Title">
+</div>
+<div class="mb-3">
+    <label class="form-label">Author</label>
+    <input type="text" class="form-control" id="Blog_Author">
+</div>
+<div class="mb-3">
+    <label class="form-label">Content</label>
+    <input type="text" class="form-control" id="Blog_Content">
+</div>
+<a href="/Blog" class="btn btn-dark">Cancel</a>
+<button type="button" id="btnSave" class="btn btn-success">Save</button>
+
+@section scripts {
+    <script>
+        $('#btnSave').click(function (e) {
+            let title = $('#Blog_Title').val();
+            let author = $('#Blog_Author').val();
+            let content = $('#Blog_Content').val();
+
+            let _requestModel = {
+                Blog_Title: title,
+                Blog_Author: author,
+                Blog_Content: content
+            };
+
+            console.log({ _requestModel });
+
+            $.ajax({
+                type: "POST",
+                url: '/BlogAjax/Save',
+                data: { requestModel: _requestModel },
+                dataType: "json",
+                success: function (data) {
+                    console.log({ data });
+                    alert(data.message);
+                    location.href = "/BlogAjax";
+                },
+                error: function (ex) {
+                    var r = jQuery.parseJSON(response.responseText);
+                    console.log("Message: " + r.Message);
+                    console.log("StackTrace: " + r.StackTrace);
+                    console.log("ExceptionType: " + r.ExceptionType);
+                }
+            });
+        })
+    </script>
+}

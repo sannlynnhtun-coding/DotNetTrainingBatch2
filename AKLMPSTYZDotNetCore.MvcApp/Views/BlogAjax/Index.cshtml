@@ -1,0 +1,69 @@
+﻿@model List<BlogDataModel>
+@{
+    ViewData["Title"] = "Blog";
+    int count = 0;
+    Layout = "_Layout";
+}
+
+<a href="/BlogAjax/Create" class="btn btn-success">New</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Action</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@(++count)</th>
+                <td>
+                    <a href="/BlogAjax/Edit/@item.Blog_Id" class="btn btn-warning">Edit</a>
+                    <button type="button" class="btn btn-danger btn-delete" data-id="@item.Blog_Id" data-blog-id="@item.Blog_Id">Delete</button>
+                </td>
+                <td>@item.Blog_Title</td>
+                <td>@item.Blog_Author</td>
+                <td>@item.Blog_Content</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $('.btn-delete').click(function (e) {
+            let result = confirm("Are you sure want to delete?");
+            if (!result) return;
+
+            // let blogId = $(this).data('blog-id');
+            let id = $(this).data('id');
+
+            let _requestModel = {
+                Blog_Id: id,
+            };
+
+            console.log({ _requestModel });
+
+            $.ajax({
+                type: "POST",
+                url: '/BlogAjax/Delete',
+                data: { requestModel: _requestModel },
+                dataType: "json",
+                success: function (data) {
+                    console.log({ data });
+                    alert(data.message);
+                    location.href = "/BlogAjax";
+                },
+                error: function (ex) {
+                    var r = jQuery.parseJSON(response.responseText);
+                    console.log("Message: " + r.Message);
+                    console.log("StackTrace: " + r.StackTrace);
+                    console.log("ExceptionType: " + r.ExceptionType);
+                }
+            });
+        })
+    </script>
+}
