@@ -76,11 +76,15 @@ Console.WriteLine("Hello, World!");
 //HttpClientExample httpClientExample = new HttpClientExample();
 //await httpClientExample.Run();
 
-Console.WriteLine("Please wait for api...");
-Console.ReadKey();
+//Console.WriteLine("Please wait for api...");
+//Console.ReadKey();
 
-RefitExample refitExample = new RefitExample(); 
-await refitExample.Run();
+//RefitExample refitExample = new RefitExample(); 
+//await refitExample.Run();
+
+AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+adoDotNetExample.Read(1, 10);
+adoDotNetExample.Read(5, 10);
 
 Console.ReadKey();
 //Console.ReadLine();

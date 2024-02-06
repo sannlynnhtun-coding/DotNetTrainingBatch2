@@ -58,6 +58,40 @@ namespace AKLMPSTYZDotNetCore.ConsoleApp.AdoDotNetExamples
             }
         }
 
+        public void Read(int pageNo, int pageSize)
+        {
+            SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+            {
+                DataSource = ".",
+                InitialCatalog = "ACMDotNetCore",
+                UserID = "sa",
+                Password = "sasa@123"
+            };
+            SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
+
+            string query = "Sp_GetBlogs";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@pageNo", pageNo);
+            command.Parameters.AddWithValue("@pageSize", pageSize);
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            sqlDataAdapter.Fill(dt);
+
+            connection.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                Console.WriteLine("Id => " + dr["Blog_Id"]);
+                Console.WriteLine("Title => " + dr["Blog_Title"]);
+                Console.WriteLine("Author => " + dr["Blog_Author"]);
+                Console.WriteLine("Content => " + dr["Blog_Content"]);
+                Console.WriteLine("-----------------");
+            }
+        }
+
         private void Edit(int id)
         {
             SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
