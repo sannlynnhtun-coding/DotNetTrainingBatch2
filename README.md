@@ -1,5 +1,20 @@
 # AKLMPSTYZDotNetCore
 
+```sql
+create proc Sp_GetBlogs
+@pageNo int,
+@pageSize int
+as
+begin
+
+select * from Tbl_Blog
+order by Blog_Id
+OFFSET ((@pageNo - 1) * @pageSize) ROWS
+FETCH NEXT @pageSize ROWS ONLY
+
+end
+```
+
 https://www.jqueryscript.net/popular/2023.html
 
 - sweetalert https://sweetalert2.github.io/
