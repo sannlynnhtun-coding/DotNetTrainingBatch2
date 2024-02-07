@@ -1,0 +1,39 @@
+﻿@model BarChartModel
+@{
+    List<int> _series = Model.Series;
+    List<string> _labels = Model.Lables;
+}
+
+<div id="bar-chart"></div>
+
+@section scripts {
+    <script>
+        let _series = @(Html.Raw(JsonConvert.SerializeObject(_series)));
+        let _labels = @(Html.Raw(JsonConvert.SerializeObject(_labels)));
+
+        var options = {
+            series: [{
+                data: _series
+            }],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    borderRadius: 4,
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            xaxis: {
+                categories: _labels
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#bar-chart"), options);
+        chart.render();
+    </script>
+}
