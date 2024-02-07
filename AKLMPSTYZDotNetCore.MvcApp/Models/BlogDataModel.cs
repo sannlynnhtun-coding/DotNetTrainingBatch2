@@ -12,4 +12,10 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public string? Blog_Author { get; set; }
         public string? Blog_Content { get; set; }
     }
+
+    public class PieChartModel
+    {
+        public List<int> Series { get; set; }
+        public List<string> Lables { get; set; }
+    }
 }

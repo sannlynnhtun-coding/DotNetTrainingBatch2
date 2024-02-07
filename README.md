@@ -144,9 +144,9 @@ RepoDB
 - radio checkbox https://bantikyan.github.io/icheck-bootstrap/ https://cdnjs.com/libraries/icheck-bootstrap https://github.com/bantikyan/icheck-bootstrap https://penguin-arts.com/how-to-check-if-a-checkbox-is-checked-using-icheck-library/
 - toast https://apvarun.github.io/toastify-js/# https://github.com/apvarun/toastify-js/blob/master/README.md
 
-Asp.Net Core MVC
+- Asp.Net Core MVC (submit, ajax)
+    - EF 
     Ado.Net
-    EF
     Dapper
 
 Chart [ApexChart, ChartJs, HighCharts, CanvasJS]
