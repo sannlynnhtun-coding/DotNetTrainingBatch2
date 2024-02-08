@@ -36,6 +36,11 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public List<int> Xaxis_categories { get; set; }
         public List<int> Revenue_line { get; set; }
     }
+    public class PyramidChartModel
+    {
+        public List<string> categories { get; set; }
+        public List<int> data { get; set; }
+    }
     #region 3DbubbleChart
     public class BubbleChartModel
     {
