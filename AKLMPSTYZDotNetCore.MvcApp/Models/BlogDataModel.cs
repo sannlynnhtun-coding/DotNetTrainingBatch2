@@ -29,4 +29,11 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public List<int> Data { get; set; }
         public List<string> Categories { get; set; }
     }
+    public class MixedChart
+    {
+        public List<double> Income_colum_data { get; set; }
+        public List<double> Cashflow_column_data { get; set; }
+        public List<int> Xaxis_categories { get; set; }
+        public List<int> Revenue_line { get; set; }
+    }
 }

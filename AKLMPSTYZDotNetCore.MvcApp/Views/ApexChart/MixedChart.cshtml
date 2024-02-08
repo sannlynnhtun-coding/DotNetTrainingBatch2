@@ -1,0 +1,140 @@
+﻿@using Newtonsoft.Json
+@model MixedChart
+
+@{
+    List<double> _income_colum_data = Model.Income_colum_data;
+    List<double> _cashflow_column_data = Model.Cashflow_column_data;
+    List<int> _xaxis_categories = Model.Xaxis_categories;
+    List<int> _revenue_line = Model.Revenue_line;
+}
+<div id="chart"></div>
+
+@section scripts {
+    <script>
+        let _income_colum_data = @(Html.Raw(JsonConvert.SerializeObject(_income_colum_data)))
+        let _cashflow_column_data = @(Html.Raw(JsonConvert.SerializeObject(_cashflow_column_data)))
+        let _xaxis_categories = @(Html.Raw(JsonConvert.SerializeObject(_xaxis_categories)))
+        let _revenue_line = @(Html.Raw(JsonConvert.SerializeObject(_revenue_line)))
+
+        var options = {
+            series: [{
+                name: 'Income',
+                type: 'column',
+                data: _income_colum_data
+            }, {
+                name: 'Cashflow',
+                type: 'column',
+                data: _cashflow_column_data
+            }, {
+                name: 'Revenue',
+                type: 'line',
+                data: _revenue_line
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                stacked: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                width: [1, 1, 4]
+            },
+            title: {
+                text: 'XYZ - Stock Analysis (2009 - 2016)',
+                align: 'left',
+                offsetX: 110
+            },
+            xaxis: {
+                categories: _xaxis_categories,
+            },
+            yaxis: [
+                {
+                    axisTicks: {
+                        show: true,
+                    },
+                    axisBorder: {
+                        show: true,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    title: {
+                        text: "Income (thousand crores)",
+                        style: {
+                            color: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                },
+                {
+                    seriesName: 'Income',
+                    opposite: true,
+                    axisTicks: {
+                        show: true,
+                    },
+                    axisBorder: {
+                        show: true,
+                        color: '#00E396'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#00E396',
+                        }
+                    },
+                    title: {
+                        text: "Operating Cashflow (thousand crores)",
+                        style: {
+                            color: '#00E396',
+                        }
+                    },
+                },
+                {
+                    seriesName: 'Revenue',
+                    opposite: true,
+                    axisTicks: {
+                        show: true,
+                    },
+                    axisBorder: {
+                        show: true,
+                        color: '#FEB019'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#FEB019',
+                        },
+                    },
+                    title: {
+                        text: "Revenue (thousand crores)",
+                        style: {
+                            color: '#FEB019',
+                        }
+                    }
+                },
+            ],
+            tooltip: {
+                fixed: {
+                    enabled: true,
+                    position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+                    offsetY: 30,
+                    offsetX: 60
+                },
+            },
+            legend: {
+                horizontalAlign: 'left',
+                offsetX: 40
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+
+    </script>
+}
