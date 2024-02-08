@@ -23,4 +23,10 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public List<int> Series { get; set; }
         public List<string> Lables { get; set; }
     }
+    public class LineChartModel
+    {
+        public string Name { get; set; }
+        public List<int> Data { get; set; }
+        public List<string> Categories { get; set; }
+    }
 }

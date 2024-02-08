@@ -23,5 +23,16 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+        public IActionResult LineChart()
+        {
+            var model = new LineChartModel()
+            {
+                Name = "High - 2013",
+                Data = new List<int>() { 28, 29, 33, 36, 32, 32, 33 },
+                Categories = new List<string>() { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul" }
+            };
+
+            return View(model);
+        }
     }
 }
