@@ -45,5 +45,52 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+        #region 3DbubbleChart
+        public IActionResult BubbleChart()
+        {
+            var model = new BubbleChartModel()
+            {
+                Series = new List<BubbleSeries>
+                {
+                    new BubbleSeries
+                    {
+                        Name = "Product1",
+                        Data = GenerateData(new DateTime(2017, 3, 11), 15, new { min = 20, max = 60 })
+                    },
+                    new BubbleSeries
+                    {
+                        Name = "Product2",
+                        Data = GenerateData(new DateTime(2018, 4, 11), 15, new { min = 20, max = 60 })
+                    },
+                     new BubbleSeries
+                    {
+                        Name = "Product3",
+                        Data = GenerateData(new DateTime(2019, 2, 11), 15, new { min = 20, max = 60 })
+                    },
+
+
+                }
+            };
+
+            return View(model);
+        }
+
+        private List<BubbleData> GenerateData(DateTime baseDate, int count, object yrange)
+        {
+            var i = 0;
+            var data = new List<BubbleData>();
+            while (i < count)
+            {
+                var x = (int)(new Random().Next(1, 750)); // Equivalent to Math.floor(Math.random() * (750 - 1 + 1)) + 1
+                var y = (int)(new Random().Next((int)yrange.GetType().GetProperty("min").GetValue(yrange), (int)yrange.GetType().GetProperty("max").GetValue(yrange))); // Equivalent to Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
+                var z = (int)(new Random().Next(15, 75)); // Equivalent to Math.floor(Math.random() * (75 - 15 + 1)) + 15
+
+                data.Add(new BubbleData { X = baseDate.AddDays(i), Y = y, Z = z });
+                i++;
+            }
+            return data;
+        }
+
+        #endregion
     }
 }

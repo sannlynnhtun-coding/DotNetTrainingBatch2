@@ -1,0 +1,23 @@
+﻿@model BubbleChartModel
+
+@section scripts {
+   
+    <script>
+        var seriesData = @Html.Raw(Json.Serialize(Model.Series));
+
+        var options = {
+            series: seriesData,
+            chart: {
+                height: 450,
+                type: 'bubble',
+            },
+          
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+}
+
+<h2>Bubble Chart View</h2>
+<div id="chart"></div>
