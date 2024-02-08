@@ -149,7 +149,7 @@ RepoDB
     Ado.Net
     Dapper
 
-Chart [ApexChart, ChartJs, HighCharts, CanvasJS]
+- Chart [ApexChart, ChartJs, HighCharts, CanvasJS]
 
 Api Call [MVC]
     HttpClient
