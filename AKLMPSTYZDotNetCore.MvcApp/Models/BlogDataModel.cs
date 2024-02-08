@@ -60,4 +60,11 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public int Z { get; set; }
     }
     #endregion
+
+    #region PolarAreaChart
+    public class PolarAreaChartModel
+    {
+        public List<int> Series { get; set; }
+    }
+    #endregion
 }

@@ -103,5 +103,16 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+
+        #region PolarAreaChart
+        public IActionResult PolarAreaChart()
+        {
+            var model = new PolarAreaChartModel
+            {
+                Series = new List<int>() { 14, 23, 21, 17, 15 }
+            };
+            return View(model);
+        }
+        #endregion
     }
 }
