@@ -8,5 +8,13 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
         {
             return View();
         }
+        public IActionResult HorizontalBarChart()
+        {
+            return View();
+        }
+        public IActionResult PolarAreaChart()
+        {
+            return View();
+        }
     }
 }
