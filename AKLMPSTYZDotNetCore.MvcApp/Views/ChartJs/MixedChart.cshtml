@@ -1,0 +1,48 @@
+﻿@model MixedChartModel
+
+@{
+    List<string> _labels = Model.Labels;
+    List<int> _bdata = Model.Bdata;
+    List<int> _ldata = Model.Ldata;
+}
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+@section scripts {
+    <script>
+        let _labels = @(Html.Raw(JsonConvert.SerializeObject(_labels)));
+        let _bdata = @(Html.Raw(JsonConvert.SerializeObject(_bdata)));
+        let _ldata = @(Html.Raw(JsonConvert.SerializeObject(_ldata)));
+
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                labels: _labels,
+                datasets: [{
+                    type: 'bar',
+                    label: 'Bar Dataset',
+                    data: _bdata,
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+                }, {
+                    type: 'line',
+                    label: 'Line Dataset',
+                    data: _ldata,
+                    fill: false,
+                    borderColor: 'rgb(54, 162, 235)'
+                }]
+                    },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+}

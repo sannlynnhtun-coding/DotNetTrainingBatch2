@@ -1,0 +1,37 @@
+﻿<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+@model ScatterChartModel
+
+@section scripts {
+    <script>
+        let _data = @(Html.Raw(JsonConvert.SerializeObject(Model.Datas)));
+
+        console.log("Serialized DataPoints:", _data);
+
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                // labels: _labels,
+                datasets: [{
+                    label: 'Scatter Dataset',
+                    data: _data.map(function (val) {
+                        return { x: val.X, y: val.Y };
+                    }),
+                    backgroundColor: 'rgb(255, 99, 132)'
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+}
