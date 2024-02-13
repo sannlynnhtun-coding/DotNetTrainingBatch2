@@ -142,4 +142,54 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public List<SpdataPoint> SpdataPoints { get; set; }
     }
     #endregion
+
+    #region Basic Bar Chart
+    public class BasicBarChartModel
+    {
+        public List<BasicBarChartDataSeriesModel> Series { get; set; }
+    }
+
+    public class BasicBarChartDataSeriesModel
+    {
+        public string Name { get; set; }
+        public List<int> Data { get; set; }
+    }
+    #endregion
+
+    #region Percentage Area Chart
+    public class PercentageAreaChartModel
+    {
+        public List<PercentageAreaChartSeriesModel> Series { get; set; }
+    }
+    public class PercentageAreaChartSeriesModel
+    {
+        public string name { get; set; }
+        public List<double> data { get; set; }
+    }
+    #endregion
+
+    #region StepAreaChart
+    public class StepAreaChartModel
+    {
+        public List<StepAreaChartDataPointsModel> DataPoints { get; set; }
+    }
+    public class StepAreaChartDataPointsModel
+    {
+        public DateTime X { get; set; }
+
+        public Double Y { get; set; }
+    }
+    #endregion
+
+    #region ColumnChart
+    public class ColumnChartDataPointsModel
+    {
+        public int Y { get; set; }
+        public string Label { get; set; }
+    }
+    public class ColumChartModel
+    {
+        public List<ColumnChartDataPointsModel> DataPoints { get; set; }
+    }
+    #endregion
 }

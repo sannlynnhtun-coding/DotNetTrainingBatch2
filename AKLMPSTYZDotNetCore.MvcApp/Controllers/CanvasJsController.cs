@@ -1,5 +1,6 @@
 ﻿using AKLMPSTYZDotNetCore.MvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 {
@@ -65,5 +66,44 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+
+        #region Step Area Chart
+        public IActionResult StepAreaChart()
+        {
+            var model = new StepAreaChartModel()
+            {
+                DataPoints = new List<StepAreaChartDataPointsModel>
+                {
+                    new StepAreaChartDataPointsModel { X = new DateTime(2002, 1, 1), Y = 34},
+                    new StepAreaChartDataPointsModel { X = new DateTime(2003, 1, 1), Y = 73},
+                    new StepAreaChartDataPointsModel { X = new DateTime(2004, 1, 1), Y = 78},
+                    new StepAreaChartDataPointsModel { X = new DateTime(2005, 1, 1), Y = 82},
+                    new StepAreaChartDataPointsModel { X = new DateTime(2006, 1, 1), Y = 70},
+                }
+            };
+            return View(model);
+        }
+        #endregion
+
+        #region Column Chart
+        public IActionResult ColumnChart()
+        {
+            var model = new ColumChartModel()
+            {
+                DataPoints = new List<ColumnChartDataPointsModel>
+                {
+                    new ColumnChartDataPointsModel { Y = 266455, Label = "Venezuela" },
+                    new ColumnChartDataPointsModel { Y = 266455, Label = "Saudi" },
+                    new ColumnChartDataPointsModel { Y = 169709, Label = "Canada" },
+                    new ColumnChartDataPointsModel { Y = 158400, Label = "Iran" },
+                    new ColumnChartDataPointsModel { Y = 142503, Label = "Iraq" },
+                    new ColumnChartDataPointsModel { Y = 101500, Label = "Kuwait" },
+                    new ColumnChartDataPointsModel { Y = 97800, Label = "UAE" },
+                    new ColumnChartDataPointsModel { Y = 80000, Label = "Russia" },
+                }
+            };
+            return View(model);
+        }
+        #endregion
     }
 }
