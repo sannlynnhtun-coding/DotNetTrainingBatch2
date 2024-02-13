@@ -57,7 +57,6 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             return RedirectToAction("Index");
         }
 
-
         public async Task<IActionResult> Delete(int id)
         {
             var item = await _appDbContext.Blogs.FirstOrDefaultAsync(x => x.Blog_Id == id);
