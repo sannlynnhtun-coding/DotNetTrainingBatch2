@@ -1,0 +1,40 @@
+﻿<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+@model CanvasBarChartModel
+
+@section scripts {
+    <script>
+        let _datapoints = @(Html.Raw(JsonConvert.SerializeObject(Model.DataPoints))) ;
+
+        console.log("Serialized DataPoints:", _datapoints);
+
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Fortune 500 Companies by Country"
+                },
+                axisX: {
+                    interval: 1
+                },
+                axisY2: {
+                    interlacedColor: "rgba(1,77,101,.2)",
+                    gridColor: "rgba(1,77,101,.1)",
+                    title: "Number of Companies"
+                },
+                data: [{
+                    type: "bar",
+                    name: "companies",
+                    color: "#014D65",
+                    axisYType: "secondary",
+                    dataPoints: _datapoints.map(function (point) {
+                        return { y: point.Y, label: point.Label };
+                    })
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+}

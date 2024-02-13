@@ -1,0 +1,40 @@
+﻿<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+@model SplineChartModel
+
+@section scripts {
+    <script>
+        let _datapoints = @(Html.Raw(JsonConvert.SerializeObject(Model.SpdataPoints))) ;
+
+        console.log("Serialized DataPoints:", _datapoints);
+
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Music Album Sales by Year"
+                },
+                axisY: {
+                    title: "Units Sold",
+                    valueFormatString: "#0,,.",
+                    suffix: "mn",
+                    stripLines: [{
+                        value: 3366500,
+                        label: "Average"
+                    }]
+                },
+                data: [{
+                    yValueFormatString: "#,### Units",
+                    xValueFormatString: "YYYY",
+                    type: "spline",
+                    dataPoints: _datapoints.map(function (point) {
+                        return { x: new Date(point.X), y: point.Y };
+                    })
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+}

@@ -1,0 +1,34 @@
+﻿@model StepAreaChartModel
+
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+@section scripts {
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Customer Satisfaction Based on Reviews"
+                },
+                axisY: {
+                    title: "Satisfied Customers",
+                    includeZero: true,
+                    suffix: "%"
+                },
+                data: [{
+                    type: "stepArea",
+                    markerSize: 5,
+                    xValueFormatString: "YYYY",
+                    yValueFormatString: "#,##0.##\"%\"",
+                    dataPoints: @Html.Raw(JsonConvert.SerializeObject(Model.DataPoints))
+                        .map(x => {
+                        return { x: new Date(x.X), y: x.Y };
+                    })
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+}

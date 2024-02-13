@@ -1,0 +1,21 @@
+﻿<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+@section scripts {
+    <script>
+        const ctx = document.getElementById('myChart');
+        var chart = new Chart(ctx, {
+            type: "polarArea",
+            data: {
+                labels: ["Jan", "Feb", "March", "April"],
+                datasets: [{
+                    label: "My First Dataset",
+                    backgroundColor: ["yellow", "orange", "red", "green"],
+                    borderColor: "#fff",
+                    data: [15, 10, 8, 9]
+                }]
+            }
+        });
+    </script>
+}
