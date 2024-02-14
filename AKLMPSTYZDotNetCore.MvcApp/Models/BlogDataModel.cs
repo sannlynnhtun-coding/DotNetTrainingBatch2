@@ -108,26 +108,6 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
 
     }
 
-    #region
-    public class BubbleChartData
-    {
-        public List<BubbleDataSet> DataSets { get; set; }
-
-        public class BubbleDataSet
-        {
-            public string Label { get; set; }
-            public List<BubbleDataPoint> DataPoints { get; set; }
-        }
-
-        public class BubbleDataPoint
-        {
-            public int X { get; set; }
-            public int Y { get; set; }
-            public int R { get; set; }
-        }
-    }
-    #endregion
-
     #region Doughnut
     public class Doughnut
     {
@@ -293,7 +273,7 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
 
         #endregion
 
-        #region Basic Bar Chart
+    #region Basic Bar Chart
         public class BasicBarChartModel
     {
         public List<BasicBarChartDataSeriesModel> Series { get; set; }
@@ -340,6 +320,25 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
     public class ColumChartModel
     {
         public List<ColumnChartDataPointsModel> DataPoints { get; set; }
+    }
+    #endregion
+    #region
+    public class BubbleChartData
+    {
+        public List<BubbleDataSet> DataSets { get; set; }
+
+        public class BubbleDataSet
+        {
+            public string Label { get; set; }
+            public List<BubbleDataPoint> DataPoints { get; set; }
+        }
+
+        public class BubbleDataPoint
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
+            public int R { get; set; }
+        }
     }
     #endregion
 }
