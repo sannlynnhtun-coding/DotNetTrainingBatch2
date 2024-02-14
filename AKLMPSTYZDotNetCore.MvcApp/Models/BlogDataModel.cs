@@ -341,4 +341,35 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         }
     }
     #endregion
+    #region SplineWithInvertedAxes Chart
+    public class SplineWithInvertedAxesChartModel
+    {
+        public string Title { get; set; }
+        public string Subtitle { get; set; }
+        public List<SeriesData> Series { get; set; }
+    }
+
+    public class SeriesData
+    {
+        public string Name { get; set; }
+        public List<PointData> Data { get; set; }
+    }
+
+    public class PointData
+    {
+        public int X { get; set; }
+        public double Y { get; set; }
+    }
+
+
+    #endregion
+
+    #region LogarithmicAxisChartModel
+    public class LogarithmicAxisChartModel
+    {
+        public List<int> Data { get; set; }
+        public int PointStart { get; set; }
+        public string Title { get; set; }
+    }
+    #endregion
 }
