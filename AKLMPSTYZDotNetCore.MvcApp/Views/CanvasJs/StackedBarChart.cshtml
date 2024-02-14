@@ -1,0 +1,47 @@
+﻿    
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    @section scripts
+    {
+    <script>
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "@Model.Title"
+                },
+                axisY: {
+                    interval: 10,
+                    suffix: "%"
+                },
+                toolTip: {
+                    shared: true
+                },
+                data: [
+        @foreach (var month in Model.Months)
+        {
+            <text>
+                        {
+                            type: "stackedBar100",
+                            toolTipContent: "{label}<br><b>{name}:</b> {y} (#percent%)",
+                            showInLegend: true,
+                            name: "@month.Name",
+                            dataPoints: [
+                @foreach (var dataPoint in month.StackedDataPoints)
+                {
+                    <text>
+                                    { y: @dataPoint.Y, label: "@dataPoint.Label" },
+                    </text>
+                }
+                                        ]
+                        },
+            </text>
+        }
+                        ]
+            });
+
+            chart.render();
+        }
+    </script>
+    }
+  

@@ -1,0 +1,55 @@
+﻿@using Newtonsoft.Json
+@using static AKLMPSTYZDotNetCore.MvcApp.Models.StackedAreaChartModel
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+
+@{
+	List<string> _title = Model.Title;
+	List<string> _axisXtitle = Model.AxisXtitle;
+	List<DataPoints> _iosdatapoint = Model.IOSDataPoints;
+}
+
+@section scripts{
+	<script>
+		let iosdatapoint = @(Html.Raw(JsonConvert.SerializeObject(Model.IOSDataPoints)))
+		let androiddatapoint = @(Html.Raw(JsonConvert.SerializeObject(Model.AndroidDataPoint)))
+		let title = @(Html.Raw(JsonConvert.SerializeObject(Model.Title)))
+		let axisXtitle = @(Html.Raw(JsonConvert.SerializeObject(Model.AxisXtitle)))
+
+		window.onload = function () {
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+				animationEnabled: true,
+				title: {
+					text: title
+				},
+				axisY: {
+					valueFormatString: "#0,.",
+					suffix: "k"
+				},
+				axisX: {
+					title: axisXtitle
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "stackedArea",
+					showInLegend: true,
+					toolTipContent: "<span style=\"color:#4F81BC\"><strong>{name}: </strong></span> {y}",
+					name: "iOS",
+					dataPoints: iosdatapoint
+				},
+				{
+					type: "stackedArea",
+					name: "Android",
+					toolTipContent: "<span style=\"color:#C0504E\"><strong>{name}: </strong></span> {y}<br><b>Total:<b> #total",
+					showInLegend: true,
+					dataPoints: androiddatapoint
+				}]
+			});
+			chart.render();
+
+		}
+	</script>
+}

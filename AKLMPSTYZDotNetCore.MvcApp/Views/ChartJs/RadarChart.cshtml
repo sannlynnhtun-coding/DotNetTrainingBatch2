@@ -1,0 +1,56 @@
+﻿@using Newtonsoft.Json
+<canvas id="myChart" width="400" height="400"></canvas>
+
+@{
+    List<string> _labeldata = Model.Labeldata;
+    List<string> _DataSetName = Model.DataSetName;
+    List<int> _DataSetData1 = Model.DataSetData1;
+    List<int> _DataSetData2 = Model.DataSetData2;
+}
+
+@section scripts {
+    <script>
+        let labeldata = @(Html.Raw(JsonConvert.SerializeObject(Model.Labeldata)))
+        let DataSetName = @(Html.Raw(JsonConvert.SerializeObject(Model.DataSetName)))
+        let DataSetData1 = @(Html.Raw(JsonConvert.SerializeObject(Model.DataSetData1)))
+        let DataSetData2 = @(Html.Raw(JsonConvert.SerializeObject(Model.DataSetData2)))
+
+        const data = {
+            labels: labeldata,
+            datasets: [{
+                label: DataSetName[0],
+                data: DataSetData1,
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+            },
+            {
+                label: DataSetName[1],
+                data: DataSetData2,
+                fill: true,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgb(54, 162, 235)',
+                pointBackgroundColor: 'rgb(54, 162, 235)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(54, 162, 235)'
+            }]
+        };
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                }
+            },
+        };
+        const myChart = new Chart(document.getElementById('myChart'), config);
+    </script>
+}
