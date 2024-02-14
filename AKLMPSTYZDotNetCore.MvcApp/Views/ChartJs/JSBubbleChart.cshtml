@@ -1,0 +1,28 @@
+﻿@model JSBubbleChartModel
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+@section scripts{
+    <script>
+        var data = {
+            datasets: [{
+                label: '@Model.Label',
+                data: @Html.Raw(Json.Serialize(Model.Data)),
+                backgroundColor: '@Model.BackgroundColor'
+            }]
+        };
+
+        var config = {
+            type: 'bubble',
+            data: data,
+            options: {}
+        };
+
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+}

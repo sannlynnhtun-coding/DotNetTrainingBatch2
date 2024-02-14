@@ -372,4 +372,28 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public string Title { get; set; }
     }
     #endregion
+    #region BubbleChartModel
+    public class JSBubbleChartModel
+    {
+        public string Label { get; set; }
+        public List<JSBubbleChartData> Data { get; set; }
+        public string BackgroundColor { get; set; }
+    }
+
+    public class JSBubbleChartData
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int R { get; set; }
+    }
+
+    #endregion
+
+    #region BarChart
+    public class BarChartJSModel
+    {
+        public int[] Data { get; set; }
+        public string[] Labels { get; set; }
+    }
+    #endregion
 }

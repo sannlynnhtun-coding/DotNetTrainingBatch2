@@ -67,20 +67,6 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             return View(model);
         }
 
-        #region Doughnut
-        public IActionResult Doughnut()
-        {
-            var model = new Doughnut
-            {
-                Label = "My First Dataset",
-                BackgroundColor = new List<string> { "rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)" },
-                Data = new List<int> { 65, 59, 80, 81 }
-            };
-
-            return View(model);
-        }
-        #endregion
-
         #region BubbleChart
         public IActionResult BubbleChart()
         {
@@ -111,6 +97,52 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 
             return View(model);
         }
+        #endregion
+
+        #region Doughnut
+        public IActionResult Doughnut()
+        {
+            var model = new Doughnut
+            {
+                Label = "My First Dataset",
+                BackgroundColor = new List<string> { "rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)" },
+                Data = new List<int> { 65, 59, 80, 81 }
+            };
+
+            return View(model);
+        }
+        #endregion
+
+        #region BarChart
+        public IActionResult BarChartJS()
+        {
+            var model = new BarChartJSModel
+            {
+                Labels = new[] { "January", "February", "March", "April", "May", "June", "July" },
+                Data = new[] { 65, 59, 80, 81, 56, 55, 40 }
+            };
+            return View(model);
+        }
+
+        #endregion
+
+        #region Bubble Chart
+        public IActionResult JSBubbleChart()
+        {
+            var model = new JSBubbleChartModel
+            {
+                Label = "First Dataset",
+                Data = new List<JSBubbleChartData>
+                {
+                    new JSBubbleChartData { X = 20, Y = 30, R = 15 },
+                    new JSBubbleChartData { X = 40, Y = 10, R = 10 }
+                },
+                BackgroundColor = "rgb(255, 99, 132)"
+            };
+
+            return View(model);
+        }
+
         #endregion
     }
 }
