@@ -1,6 +1,8 @@
 ﻿using AKLMPSTYZDotNetCore.MvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using static AKLMPSTYZDotNetCore.MvcApp.Models.StackedAreaChartModel;
+
+using static AKLMPSTYZDotNetCore.MvcApp.Models.StackedBarChart;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
@@ -151,5 +153,86 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 
 			return View(model);
 		}
+
+		#region AreaChart
+		public IActionResult AreaChart()
+		{
+			var model = new AreaChart()
+			{
+				Title = "Number of iPhones Sold in Different Quarters",
+				AreaDataPoint = new List<AreDataPoint>
+		{
+			new AreDataPoint { X = new DateOnly(2015, 02, 1), Y = 74.4, Label = "Q1-2015" },
+			new AreDataPoint { X = new DateOnly(2015, 05, 1), Y = 61.1, Label = "Q2-2015" },
+			new AreDataPoint { X = new DateOnly(2015, 08, 1), Y = 47.0, Label = "Q3-2015" },
+			new AreDataPoint { X = new DateOnly(2015, 11, 1), Y = 48.0, Label = "Q4-2015" },
+			new AreDataPoint { X = new DateOnly(2016, 02, 1), Y = 74.8, Label = "Q1-2016" },
+			new AreDataPoint { X = new DateOnly(2016, 05, 1), Y = 51.1, Label = "Q2-2016" },
+			new AreDataPoint { X = new DateOnly(2016, 08, 1), Y = 40.4, Label = "Q3-2016" },
+			new AreDataPoint { X = new DateOnly(2016, 11, 1), Y = 45.5, Label = "Q4-2016" },
+			new AreDataPoint { X = new DateOnly(2017, 02, 1), Y = 78.3, Label = "Q1-2017", IndexLabel = "Highest", MarkerColor = "red" }
+		}
+			};
+
+			return View(model);
+		}
+		#endregion
+		#region StackedBarChart
+
+		public IActionResult StackedBarChart()
+		{
+			var model = new StackedBarChart
+			{
+				Title = "Division of Products Sold in 2nd Quarter",
+				Months = new List<MonthData>
+			{
+                new MonthData
+                {
+                    Name = "April",
+                    StackedDataPoints = new List<StackedDataPoint>
+                    {
+                        new StackedDataPoint { Y = 600, Label = "Water Filter" },
+                        new StackedDataPoint { Y = 400, Label = "Modern Chair" },
+                        new StackedDataPoint { Y = 120, Label = "VOIP Phone" },
+                        new StackedDataPoint { Y = 250, Label = "Microwave" },
+                        new StackedDataPoint { Y = 120, Label = "Water Filter" },
+                        new StackedDataPoint { Y = 374, Label = "Expresso Machine" },
+                        new StackedDataPoint { Y = 350, Label = "Lobby Chair" }
+                    }
+                },
+                new MonthData
+                {
+                    Name = "May",
+                    StackedDataPoints = new List<StackedDataPoint>
+                    {
+                        new StackedDataPoint { Y = 400, Label = "Water Filter" },
+                        new StackedDataPoint { Y = 500, Label = "Modern Chair" },
+                        new StackedDataPoint { Y = 220, Label = "VOIP Phone" },
+                        new StackedDataPoint { Y = 350, Label = "Microwave" },
+                        new StackedDataPoint { Y = 220, Label = "Water Filter" },
+                        new StackedDataPoint { Y = 474, Label = "Expresso Machine" },
+                        new StackedDataPoint { Y = 450, Label = "Lobby Chair" }
+                    }
+                },
+                new MonthData
+                {
+                    Name = "June",
+                    StackedDataPoints = new List<StackedDataPoint>
+                    {
+                        new StackedDataPoint { Y = 300, Label = "Water Filter" },
+                        new StackedDataPoint { Y = 610, Label = "Modern Chair" },
+                        new StackedDataPoint { Y = 215, Label = "VOIP Phone" },
+                        new StackedDataPoint { Y = 221, Label = "Microwave" },
+                        new StackedDataPoint { Y = 75, Label = "Water Filter" },
+                        new StackedDataPoint { Y = 310, Label = "Expresso Machine" },
+                        new StackedDataPoint { Y = 340, Label = "Lobby Chair" }
+                    }
+                }
+            }
+            };
+
+            return View(model);
+            #endregion
+        }
 	}
 }

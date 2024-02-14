@@ -1,0 +1,24 @@
+﻿<canvas id="myDoughnutChart" width="100" height="100"></canvas>
+
+@section scripts {
+    <script>
+        const ctx = document.getElementById('myDoughnutChart');
+        let data = @Html.Raw(Json.Serialize(Model.Data));
+        let backgroundColor = @Html.Raw(Json.Serialize(Model.BackgroundColor));
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: backgroundColor,
+                datasets: [{
+                    label: @Html.Raw(Json.Serialize(Model.Label)),
+                    data: data,
+                    backgroundColor: backgroundColor
+                }]
+            },
+            options: {
+                aspectRatio: 1, // Set aspectRatio to control the size (1 for a square chart)
+            }
+        });
+    </script>
+}

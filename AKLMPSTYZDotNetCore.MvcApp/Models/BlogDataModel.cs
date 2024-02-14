@@ -84,7 +84,7 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
     //MixedChart
     public class MixedChartModel
     {
-        public List<string> Labels { get; set; }
+        public List<string>? Labels { get; set; }
 
         public List<int> Bdata { get; set; }
 
@@ -105,6 +105,37 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public List<int>? DataSetData { get; set; }
 
     }
+
+    #region
+    public class BubbleChartData
+    {
+        public List<BubbleDataSet> DataSets { get; set; }
+
+        public class BubbleDataSet
+        {
+            public string Label { get; set; }
+            public List<BubbleDataPoint> DataPoints { get; set; }
+        }
+
+        public class BubbleDataPoint
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
+            public int R { get; set; }
+        }
+    }
+    #endregion
+
+    #region Doughnut
+    public class Doughnut
+    {
+        public string Label { get; set; }
+        public List<string> BackgroundColor { get; set; }
+        public List<int> Data { get; set; }
+    }
+
+    #endregion
+
 
     #region HighCharts
     public class WithDataLabelsChartModel
@@ -136,6 +167,38 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
     {
         public List<string>? Title { get; set; }
     }
+
+    #region BasicArea
+    public class BasicArea
+    {
+        public string ChartTitle { get; set; }
+        public string Description { get; set; }
+        public string Source { get; set; }
+        public string RangeDescription { get; set; }
+        public string YAxisTitle { get; set; }
+        public int PointStart { get; set; }
+        public int[] UsaData { get; set; }
+        public int[] UssrRussiaData { get; set; }
+    }
+    #endregion
+
+
+    #region Stacked and GroupColumn Chart
+    public class StackedGroupColumn
+    {
+        public string ChartTitle { get; set; }
+        public List<string> XAxisCategories { get; set; }
+        public List<MedalSeries> Series { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class MedalSeries
+    {
+        public string Name { get; set; }
+        public List<int> Data { get; set; }
+        public string Stack { get; set; }
+    }
+    #endregion
 
     #endregion
 
@@ -185,10 +248,51 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
     {
         public List<SpdataPoint> SpdataPoints { get; set; }
     }
+
+    #region AreaChart
+
+    public class AreaChart
+    {
+        public string Title { get; set; }
+        public List<AreDataPoint> AreaDataPoint { get; set; }
+    }
+
+    public class AreDataPoint
+    {
+        public DateOnly X { get; set; }
+        public double Y { get; set; }
+        public string Label { get; set; }
+        public string IndexLabel { get; set; }
+        public string MarkerColor { get; set; }
+    }
+
     #endregion
 
-    #region Basic Bar Chart
-    public class BasicBarChartModel
+
+    #region 100StackedBaChart
+    public class StackedBarChart
+    {
+        public string Title { get; set; }
+        public List<MonthData> Months { get; set; }
+
+        public class MonthData
+        {
+            public string Name { get; set; }
+            public List<StackedDataPoint> StackedDataPoints { get; set; }
+        }
+
+        public class StackedDataPoint
+        {
+            public int Y { get; set; }
+            public string Label { get; set; }
+        }
+    }
+        #endregion
+
+        #endregion
+
+        #region Basic Bar Chart
+        public class BasicBarChartModel
     {
         public List<BasicBarChartDataSeriesModel> Series { get; set; }
     }

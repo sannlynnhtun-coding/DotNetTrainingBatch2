@@ -66,5 +66,51 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+
+        #region Doughnut
+        public IActionResult Doughnut()
+        {
+            var model = new Doughnut
+            {
+                Label = "My First Dataset",
+                BackgroundColor = new List<string> { "rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)" },
+                Data = new List<int> { 65, 59, 80, 81 }
+            };
+
+            return View(model);
+        }
+        #endregion
+
+        #region BubbleChart
+        public IActionResult BubbleChart()
+        {
+            var model = new BubbleChartData
+            {
+                DataSets = new List<BubbleChartData.BubbleDataSet>
+            {
+                new BubbleChartData.BubbleDataSet
+                {
+                    Label = "First Dataset",
+                    DataPoints = new List<BubbleChartData.BubbleDataPoint>
+                    {
+                        new BubbleChartData.BubbleDataPoint { X = 20, Y = 30, R = 15 },
+                        new BubbleChartData.BubbleDataPoint { X = 40, Y = 10, R = 10 }
+                    }
+                },
+                new BubbleChartData.BubbleDataSet
+                {
+                    Label = "Second Dataset",
+                    DataPoints = new List<BubbleChartData.BubbleDataPoint>
+                    {
+                        new BubbleChartData.BubbleDataPoint { X = 30, Y = 40, R = 20 },
+                        new BubbleChartData.BubbleDataPoint { X = 50, Y = 20, R = 15 }
+                    }
+                }
+            }
+            };
+
+            return View(model);
+        }
+        #endregion
     }
 }
