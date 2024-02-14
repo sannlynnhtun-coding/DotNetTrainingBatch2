@@ -39,6 +39,7 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+
         public IActionResult BasicBarChart()
         {
             string json = @"[
@@ -91,5 +92,52 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+
+        #region SplineWithInvertedAxesChart
+        public IActionResult SplineWithInvertedAxesChart()
+        {
+            var model = new SplineWithInvertedAxesChartModel
+            {
+                Title = "Atmosphere Temperature by Altitude",
+                Subtitle = "According to the Standard Atmosphere Model",
+                Series = new List<SeriesData>
+                {
+                    new SeriesData
+                    {
+                        Name = "Temperature",
+                        Data = new List<PointData>
+                        {
+                            new PointData { X = 0, Y = 15 },
+                            new PointData { X = 10, Y = -50 },
+                            new PointData { X = 20, Y = -56.5 },
+                            new PointData { X = 30, Y = -46.5 },
+                            new PointData { X = 40, Y = -22.1 },
+                            new PointData { X = 50, Y = -2.5 },
+                            new PointData { X = 60, Y = -27.7 },
+                            new PointData { X = 70, Y = -55.7 },
+                            new PointData { X = 80, Y = -76.5 }
+                        }
+                    }
+                }
+            };
+
+            return View(model);
+        }
+        #endregion
+
+        #region LogarithmicAxisChart
+        public IActionResult LogarithmicAxisChart()
+        {
+            var model = new LogarithmicAxisChartModel
+            {
+                Title = "Logarithmic Axis Demo",
+                Data = new List<int> { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512 },
+                PointStart = 1
+            };
+
+            return View(model);
+        }
+        #endregion
+
     }
 }

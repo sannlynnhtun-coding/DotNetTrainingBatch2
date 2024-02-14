@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AKLMPSTYZDotNetCore.MvcApp.Models
@@ -41,6 +42,7 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
         public List<string> categories { get; set; }
         public List<int> data { get; set; }
     }
+
     #region 3DbubbleChart
     public class BubbleChartModel
     {
@@ -190,6 +192,85 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Models
     public class ColumChartModel
     {
         public List<ColumnChartDataPointsModel> DataPoints { get; set; }
+    }
+    #endregion
+
+    #region Range Area Chart
+    public class RangeAreaChartModel
+    {
+        public List<RangeAreaChartModel> DataPoints { get; set; }
+        public int YMin { get; set; }
+        public int YMax { get; set; }
+        public DateTime X { get; set; }
+
+    }
+	#endregion
+
+	#region Range Spline Area Chart
+	public class RangeSplineAreaChartModel
+	{
+		public List<RangeSplineAreaChartModel> DataPoints { get; set; }
+		public int YMin { get; set; }
+		public int YMax { get; set; }
+		public DateTime X { get; set; }
+
+	}
+    #endregion
+
+    #region SplineWithInvertedAxes Chart
+    public class SplineWithInvertedAxesChartModel
+    {
+        public string Title { get; set; }
+        public string Subtitle { get; set; }
+        public List<SeriesData> Series { get; set; }
+    }
+
+    public class SeriesData
+    {
+        public string Name { get; set; }
+        public List<PointData> Data { get; set; }
+    }
+
+    public class PointData
+    {
+        public int X { get; set; }
+        public double Y { get; set; }
+    }
+
+
+    #endregion
+
+    #region LogarithmicAxisChartModel
+    public class LogarithmicAxisChartModel
+    {
+        public List<int> Data { get; set; }
+        public int PointStart { get; set; }
+        public string Title { get; set; }
+    }
+    #endregion
+
+    #region BubbleChartModel
+    public class JSBubbleChartModel
+    {
+        public string Label { get; set; }
+        public List<JSBubbleChartData> Data { get; set; }
+        public string BackgroundColor { get; set; }
+    }
+
+    public class JSBubbleChartData
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int R { get; set; }
+    }
+
+    #endregion
+
+    #region BarChart
+    public class BarChartJSModel
+    {
+        public int[] Data { get; set; }
+        public string[] Labels { get; set; }
     }
     #endregion
 }

@@ -44,5 +44,36 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+
+        #region Bubble Chart
+        public IActionResult JSBubbleChart()
+        {
+            var model = new JSBubbleChartModel
+            {
+                Label = "First Dataset",
+                Data = new List<JSBubbleChartData>
+                {
+                    new JSBubbleChartData { X = 20, Y = 30, R = 15 },
+                    new JSBubbleChartData { X = 40, Y = 10, R = 10 }
+                },
+                BackgroundColor = "rgb(255, 99, 132)"
+            };
+
+            return View(model);
+        }
+
+        #endregion
+
+        #region BarChart
+        public IActionResult BarChartJS()
+    {
+        var model = new BarChartJSModel
+        {
+            Labels = new[] { "January", "February", "March", "April", "May", "June", "July" },
+            Data = new[] { 65, 59, 80, 81, 56, 55, 40 }
+        };
+        return View(model);
+    }
+        #endregion
     }
 }

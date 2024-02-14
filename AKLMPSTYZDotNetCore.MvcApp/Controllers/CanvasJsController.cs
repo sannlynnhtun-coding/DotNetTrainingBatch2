@@ -104,6 +104,75 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+		#endregion
+
+		#region Range Area Chart
+		public IActionResult RangeAreaChart()
+		{
+			var model = new RangeAreaChartModel()
+			{
+				DataPoints = new List<RangeAreaChartModel>
+		        {
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 01), YMin = 15, YMax = 21 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 02), YMin = 13, YMax = 27 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 03), YMin = 14, YMax = 23 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 04), YMin = 17, YMax = 25 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 05), YMin = 16, YMax = 23 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 06), YMin = 16, YMax = 29 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 07), YMin = 18, YMax = 27 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 08), YMin = 16, YMax = 25 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 09), YMin = 15, YMax = 25 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 10), YMin = 16, YMax = 23 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 11), YMin = 15, YMax = 26 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 12), YMin = 19, YMax = 23 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 13), YMin = 16, YMax = 19 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 14), YMin = 16, YMax = 27 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 15), YMin = 18, YMax = 27 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 16), YMin = 17, YMax = 24 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 17), YMin = 19, YMax = 23 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 18), YMin = 19, YMax = 26 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 19), YMin = 20, YMax = 30 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 20), YMin = 17, YMax = 21 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 21), YMin = 19, YMax = 30 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 22), YMin = 21, YMax = 23 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 23), YMin = 20, YMax = 24 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 24), YMin = 17, YMax = 22 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 25), YMin = 17, YMax = 22 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 26), YMin = 16, YMax = 22 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 27), YMin = 19, YMax = 26 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 28), YMin = 18, YMax = 23 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 29), YMin = 18, YMax = 27 },
+			new RangeAreaChartModel { X = new DateTime(2017, 06, 30), YMin = 20, YMax = 31 } 
+                }
+			};
+			return View(model);
+		}
         #endregion
+
+        #region Range Spline Area Chart
+        public IActionResult RangeSplineAreaChart()
+        {
+            var model = new RangeSplineAreaChartModel()
+            {
+                DataPoints = new List<RangeSplineAreaChartModel>
+                {
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 1, 01), YMin = 7, YMax = 18 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 2, 01), YMin = 11, YMax = 23 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 3, 01), YMin = 15, YMax = 28 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 4, 01), YMin = 22, YMax = 36 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 5, 01), YMin = 26, YMax = 39 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 6, 01), YMin = 27, YMax = 37 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 7, 01), YMin = 27, YMax = 34 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 8, 01), YMin = 26, YMax = 33 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 9, 01), YMin = 24, YMax = 33 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 10, 01), YMin = 19, YMax = 31 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 11, 01), YMin = 13, YMax = 27 },
+                  new RangeSplineAreaChartModel { X = new DateTime(2016, 12, 01), YMin = 8, YMax = 21 }
+                }
+            };
+            return View(model);
+        }
+        #endregion
+
     }
 }
