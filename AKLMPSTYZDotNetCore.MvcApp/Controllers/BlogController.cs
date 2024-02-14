@@ -21,6 +21,26 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             return View(lst);
         }
 
+        // https://localhost:3000/blog/index?pageNo=1&pageSize=10
+        public async Task<IActionResult> BlogList(int pageNo = 1, int pageSize = 10)
+        {
+            var query = _appDbContext.Blogs
+                //.Where(x => x.DeleteFlag == false);
+                .AsNoTracking()
+                .OrderByDescending(x => x.Blog_Id);
+
+            var lst = await query.Skip((pageNo - 1) * pageSize).Take(pageSize).ToListAsync();
+            var rowCount = await query.CountAsync();
+
+            var pageCount = rowCount / pageSize;
+            if (rowCount % pageSize > 0)
+            {
+                pageCount++;
+            }
+           
+            return View("BlogList", lst);
+        }
+
         public IActionResult Create()
         {
             return View();
