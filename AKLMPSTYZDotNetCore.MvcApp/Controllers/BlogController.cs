@@ -23,7 +23,7 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 
         // https://localhost:3000/blog/index?pageNo=1&pageSize=10
         [ActionName("List")]
-        public async Task<IActionResult> BlogList(int pageNo = 1, int pageSize = 10)
+        public async Task<IActionResult> List(int pageNo = 1, int pageSize = 10)
         {
             var query = _appDbContext.Blogs
                 //.Where(x => x.DeleteFlag == false);
@@ -52,7 +52,7 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
                 PageSetting = new PageSettingModel(pageNo, pageSize, pageCount, rowCount)
             };
            
-            return View("BlogList", model);
+            return View(model);
         }
 
         public IActionResult Create()
