@@ -22,6 +22,7 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
         }
 
         // https://localhost:3000/blog/index?pageNo=1&pageSize=10
+        [ActionName("List")]
         public async Task<IActionResult> BlogList(int pageNo = 1, int pageSize = 10)
         {
             var query = _appDbContext.Blogs
@@ -37,8 +38,21 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             {
                 pageCount++;
             }
+
+            BlogResponseModel model = new BlogResponseModel()
+            {
+                Data = lst,
+                //PageSetting = new PageSettingModel()
+                //{
+                //    PageNo = pageNo,
+                //    PageSize = pageSize,
+                //    PageCount = pageCount,
+                //    PageRowCount = rowCount,
+                //}
+                PageSetting = new PageSettingModel(pageNo, pageSize, pageCount, rowCount)
+            };
            
-            return View("BlogList", lst);
+            return View("BlogList", model);
         }
 
         public IActionResult Create()
