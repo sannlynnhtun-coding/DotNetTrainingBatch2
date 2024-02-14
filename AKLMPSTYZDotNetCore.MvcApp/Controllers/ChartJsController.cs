@@ -44,5 +44,105 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+        public IActionResult Linechart()
+        {
+            var model = new ChartJSLineChartModel
+            {
+                Labeldata = new List<string> { "January", "February", "March", "April", "May", "June", "July" },
+                DataSetName = new List<string> { "My First Dataset" },
+                DataSetData = new List<int> { 65, 59, 80, 81, 56, 55, 85 },
+            };
+            return View(model);
+
+        }
+        public IActionResult RadarChart()
+        {
+            var model = new RadarChartModel
+            {
+                Labeldata = new List<string> { "Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running" },
+                DataSetName = new List<string> { "My First DataSet", "My Second DataSet" },
+                DataSetData1 = new List<int> { 65, 59, 90, 81, 56, 55, 40 },
+                DataSetData2 = new List<int> { 28, 48, 40, 19, 96, 27, 100 }
+            };
+            return View(model);
+        }
+
+        #region BubbleChart
+        public IActionResult BubbleChart()
+        {
+            var model = new BubbleChartData
+            {
+                DataSets = new List<BubbleChartData.BubbleDataSet>
+            {
+                new BubbleChartData.BubbleDataSet
+                {
+                    Label = "First Dataset",
+                    DataPoints = new List<BubbleChartData.BubbleDataPoint>
+                    {
+                        new BubbleChartData.BubbleDataPoint { X = 20, Y = 30, R = 15 },
+                        new BubbleChartData.BubbleDataPoint { X = 40, Y = 10, R = 10 }
+                    }
+                },
+                new BubbleChartData.BubbleDataSet
+                {
+                    Label = "Second Dataset",
+                    DataPoints = new List<BubbleChartData.BubbleDataPoint>
+                    {
+                        new BubbleChartData.BubbleDataPoint { X = 30, Y = 40, R = 20 },
+                        new BubbleChartData.BubbleDataPoint { X = 50, Y = 20, R = 15 }
+                    }
+                }
+            }
+            };
+
+            return View(model);
+        }
+        #endregion
+
+        #region Doughnut
+        public IActionResult Doughnut()
+        {
+            var model = new Doughnut
+            {
+                Label = "My First Dataset",
+                BackgroundColor = new List<string> { "rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)" },
+                Data = new List<int> { 65, 59, 80, 81 }
+            };
+
+            return View(model);
+        }
+        #endregion
+
+        #region BarChart
+        public IActionResult BarChartJS()
+        {
+            var model = new BarChartJSModel
+            {
+                Labels = new[] { "January", "February", "March", "April", "May", "June", "July" },
+                Data = new[] { 65, 59, 80, 81, 56, 55, 40 }
+            };
+            return View(model);
+        }
+
+        #endregion
+
+        #region Bubble Chart
+        public IActionResult JSBubbleChart()
+        {
+            var model = new JSBubbleChartModel
+            {
+                Label = "First Dataset",
+                Data = new List<JSBubbleChartData>
+                {
+                    new JSBubbleChartData { X = 20, Y = 30, R = 15 },
+                    new JSBubbleChartData { X = 40, Y = 10, R = 10 }
+                },
+                BackgroundColor = "rgb(255, 99, 132)"
+            };
+
+            return View(model);
+        }
+
+        #endregion
     }
 }

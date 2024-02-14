@@ -1,0 +1,45 @@
+﻿@section scripts {
+    <script>
+        window.onload = function () {
+            var chartData = @Html.Raw(JsonConvert.SerializeObject(Model.AreaDataPoint));
+
+            var dataPoints = chartData.map(item => ({
+                x: new Date(item.X),
+                y: item.Y,
+                label: item.Label,
+                indexLabel: item.IndexLabel,
+                markerColor: item.MarkerColor
+            }));
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Number of iPhones Sold in Different Quarters"
+                },
+                axisX: {
+                    minimum: new Date(2015, 01, 25),
+                    maximum: new Date(2017, 02, 15),
+                    valueFormatString: "MMM YY"
+                },
+                axisY: {
+                    title: "Number of Sales",
+                    titleFontColor: "#4F81BC",
+                    includeZero: true,
+                    suffix: "mn"
+                },
+                data: [{
+                    indexLabelFontColor: "darkSlateGray",
+                    name: "views",
+                    type: "area",
+                    yValueFormatString: "#,##0.0mn",
+                    dataPoints: dataPoints
+                }]
+            });
+
+            chart.render();
+            console.log(dataPoints);
+        }
+    </script>
+}
+
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>

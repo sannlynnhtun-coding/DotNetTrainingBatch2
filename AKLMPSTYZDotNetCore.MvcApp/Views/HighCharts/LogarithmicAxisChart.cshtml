@@ -1,0 +1,38 @@
+﻿@model LogarithmicAxisChartModel
+
+<div id="container"></div>
+
+@section scripts{
+    <script>
+        var _titleText = @Html.Raw(JsonConvert.SerializeObject(Model.Title));
+        var _series = @Html.Raw(JsonConvert.SerializeObject(Model.Data));
+
+        Highcharts.chart('container', {
+            title: {
+                text: _titleText,
+            },
+            xAxis: {
+                tickInterval: 1,
+                type: 'logarithmic',
+                accessibility: {
+                    rangeDescription: 'Range: 1 to 10'
+                }
+            },
+            yAxis: {
+                type: 'logarithmic',
+                minorTickInterval: 0.1,
+                accessibility: {
+                    rangeDescription: 'Range: 0.1 to 1000'
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br/>',
+                pointFormat: 'x = {point.x}, y = {point.y}'
+            },
+            series: [{
+                data: _series,
+                pointStart: @Model.PointStart
+                    }]
+        });
+    </script>
+}

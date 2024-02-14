@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bubble Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myBubbleChart" width="400" height="400"></canvas>
+
+    @section scripts {
+        <script>
+            window.onload = function () {
+                const data = {
+                    datasets: [
+            @foreach (var dataSet in Model.DataSets)
+            {
+                <text>{
+                                label: '@dataSet.Label',
+                                data: [
+                    @foreach (var dataPoint in dataSet.DataPoints)
+                    {
+                        <text>{ x: @dataPoint.X, y: @dataPoint.Y, r: @dataPoint.R }, </text>
+                    }
+                                                                ],
+                                backgroundColor: 'rgb(255, 99, 132)'
+                            }, </text>
+            }
+                                            ]
+                };
+
+                const config = {
+                    type: 'bubble',
+                    data: data,
+                    options: {}
+                };
+
+                var myBubbleChart = new Chart(
+                    document.getElementById('myBubbleChart'),
+                    config
+                );
+            };
+        </script>
+    }
+</body>
+</html>
+]
