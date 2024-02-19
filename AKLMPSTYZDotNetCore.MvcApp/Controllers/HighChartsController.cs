@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
+using static AKLMPSTYZDotNetCore.MvcApp.Models.KKChartsModel;
 
 namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 {
@@ -109,7 +110,71 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
                 Title = new List<string> { "2017 YTD" },
             };
             return View(model);
-        }
+		}
+
+
+        #region SemiCircleChart
+        public IActionResult SemiCircleChart()
+		{
+			var data = new KKSemiCircleModel()
+			{
+				Title = "Components of atmosphere",
+				Name = "Concentration",
+				Data = new List<List<object>>()
+				{
+					new List<object>()
+					{
+						"Nitrogen",78
+					},new List<object>()
+					{
+						"Oxygen",20.9
+					},new List<object>()
+					{
+						"Other",0.17
+					},new List<object>()
+					{
+						"Argon",0.90
+					},new List<object>()
+					{
+						"Carbon Dioxide",0.03
+					},
+				}
+			};
+			return View(data);
+		}
+        #endregion
+
+        #region TimeSeriesChart
+        public async Task<IActionResult> TimeSeriesChart()
+		{
+			var data = new KKTimeSeriesChartModel()
+			{
+				Title = "USD to EUR exchange rate over time",
+				TitleX = "",
+				TitleY = "Exchange rate'",
+				Data = { }
+			};
+			using (HttpClient client = new HttpClient())
+			{
+				try
+				{
+					HttpResponseMessage response = await client.GetAsync("https://cdn.jsdelivr.net/gh/highcharts/highcharts@v10.3.3/samples/data/usdeur.json");
+					response.EnsureSuccessStatusCode();
+					string responseBody = await response.Content.ReadAsStringAsync();
+					dynamic jsonData = JsonConvert.DeserializeObject(responseBody);
+					// Here, you can parse the JSON response as needed
+
+					data.Data = jsonData;
+
+				}
+				catch (HttpRequestException e)
+				{
+					Console.WriteLine($"HttpRequestException: {e.Message}");
+				}
+			}
+			return View(data);
+		}
+        #endregion
 
         #region Basic Area Chart
         public IActionResult BasicAreaChart()

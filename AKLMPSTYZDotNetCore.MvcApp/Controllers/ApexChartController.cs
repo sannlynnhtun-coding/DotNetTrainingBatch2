@@ -1,5 +1,6 @@
 ﻿using AKLMPSTYZDotNetCore.MvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using static AKLMPSTYZDotNetCore.MvcApp.Models.KKChartsModel;
 
 namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 {
@@ -94,6 +95,18 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 
         #endregion
 
+        #region PolarAreaChart
+        public IActionResult PolarAreaChart()
+        {
+            var model = new PolarAreaChartModel
+            {
+                Series = new List<int>() { 14, 23, 21, 17, 15 }
+            };
+            return View(model);
+        }
+        #endregion
+
+        #region PyramidChart
         public IActionResult PyramidChart()
         {
             var model = new PyramidChartModel()
@@ -103,15 +116,26 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+        #endregion
 
-        #region PolarAreaChart
-        public IActionResult PolarAreaChart()
+        #region RadarChart
+        public IActionResult RadarChart()
         {
-            var model = new PolarAreaChartModel
+            KKRadarSeriseModel serie1 = new KKRadarSeriseModel()
             {
-                Series = new List<int>() { 14, 23, 21, 17, 15 }
+                name = "Player 1",
+                data = new List<int> { 3, 0, 2, 5, 4 }
             };
-            return View(model);
+
+            var data = new KKRadarChartModel()
+            {
+                Series = new List<KKRadarSeriseModel>()
+                {
+                    serie1
+                },
+                Categories = new List<string>() { "Kill", "Death", "Assist", "Survial", "Heal" }
+            };
+            return View("Radar",data);
         }
         #endregion
     }

@@ -1,15 +1,12 @@
 ﻿using AKLMPSTYZDotNetCore.MvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using static AKLMPSTYZDotNetCore.MvcApp.Models.KKChartsModel;
 
 namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 {
     public class ChartJsController : Controller
     {
         public IActionResult ColumnChart()
-        {
-            return View();
-        }
-        public IActionResult HorizontalBarChart()
         {
             return View();
         }
@@ -66,6 +63,59 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
             };
             return View(model);
         }
+        public IActionResult HorizontalBarChart()
+        {
+            return View();
+        }
+
+        #region HoriBarChart
+        public IActionResult HoribarChart()
+        {
+            var data = new KKHoriBarModel()
+            {
+                labels = new List<string>() { "Most loved languages" },
+                datasets = new List<KKHoriBarDataSetModel>()
+                {
+                    new KKHoriBarDataSetModel()
+                    {
+                        label = "Rust",
+                        data = new List<int>(){ 83 },
+                        backgroundColor = "#8bca84",
+                        borderColor = "#3b8132"
+                    },
+                    new KKHoriBarDataSetModel()
+                    {
+                        label = "Python",
+                        data = new List<int>(){ 76 },
+                        backgroundColor = "#8bca84",
+                        borderColor = "#3b8132"
+                    }
+                    ,new KKHoriBarDataSetModel()
+                    {
+                        label = "Typescript",
+                        data = new List<int>(){ 68 },
+                        backgroundColor = "#8bca84",
+                        borderColor = "#3b8132"
+                    }
+                    ,new KKHoriBarDataSetModel()
+                    {
+                        label = "Web Assembly",
+                        data = new List<int>(){ 64 },
+                        backgroundColor = "#8bca84",
+                        borderColor = "#3b8132"
+                    }
+                    ,new KKHoriBarDataSetModel()
+                    {
+                        label = "Elixar",
+                        data = new List<int>(){ 52 },
+                        backgroundColor = "#8bca84",
+                        borderColor = "#3b8132"
+                    },
+                }
+            };
+            return View(data);
+        }
+        #endregion
 
         #region BubbleChart
         public IActionResult BubbleChart()

@@ -1,5 +1,6 @@
 ﻿using AKLMPSTYZDotNetCore.MvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using static AKLMPSTYZDotNetCore.MvcApp.Models.KKChartsModel;
 using static AKLMPSTYZDotNetCore.MvcApp.Models.StackedAreaChartModel;
 
 using static AKLMPSTYZDotNetCore.MvcApp.Models.StackedBarChart;
@@ -152,10 +153,65 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 			};
 
 			return View(model);
-		}
+        }
 
-		#region AreaChart
-		public IActionResult AreaChart()
+        #region PyramidChart
+        public IActionResult PyramidChart()
+        {
+            var data = new KKPyramidModel()
+            {
+                Title = "OKNRSR",
+                DataPoints = new List<KKDataPointsModel>()
+                {
+                    new KKDataPointsModel()
+                    {
+                        y=26.66,
+                        label="Sleep"
+                    },new KKDataPointsModel()
+                    {
+                        y=16,
+                        label="Eat"
+                    },new KKDataPointsModel()
+                    {
+                        y=57.34,
+                        label="Code"
+                    }
+                }
+            };
+            return View(data);
+        }
+        #endregion
+
+        #region RangeArea
+        public IActionResult RangeArea()
+        {
+            var data = new KKRangeAreaModel()
+            {
+                Title = "Temperature in Toronto - Jan 2024",
+                TitleY = "Temperature (°C)",
+                SuffixY = "°C",
+                TitleX = "",
+                DataPoints = new List<KKRangeAreaDataPoint>() {
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 01), y = new List<int>() { 15, 21 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 02), y = new List<int>() { 13, 27 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 03), y = new List<int>() { 14, 23 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 04), y = new List<int>() { 17, 25 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 05), y = new List<int>() { 16, 23 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 06), y = new List<int>() { 16, 29 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 07), y = new List<int>() { 18, 27 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 08), y = new List<int>() { 16, 25 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 09), y = new List<int>() { 15, 25 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 10), y = new List<int>() { 16, 23 } },
+                    new KKRangeAreaDataPoint() { x = new DateTime(2024, 01, 11), y = new List<int>() { 15, 26 } }
+                }
+
+            };
+            return View(data);
+        }
+        #endregion
+
+        #region AreaChart
+        public IActionResult AreaChart()
 		{
 			var model = new AreaChart()
 			{
@@ -177,6 +233,7 @@ namespace AKLMPSTYZDotNetCore.MvcApp.Controllers
 			return View(model);
 		}
 		#endregion
+
 		#region StackedBarChart
 
 		public IActionResult StackedBarChart()
