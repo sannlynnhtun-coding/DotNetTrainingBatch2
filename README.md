@@ -126,7 +126,7 @@ Database First (Database Table => C# Class)
 
 
 ```
-- Console App
+[x] Console App
 
 - Ado.Net (CRUD)
 - Dapper  (CRUD)
