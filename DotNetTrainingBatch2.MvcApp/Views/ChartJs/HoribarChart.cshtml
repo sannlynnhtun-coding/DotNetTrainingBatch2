@@ -1,0 +1,49 @@
+﻿@using static DotNetTrainingBatch2.MvcApp.Models.KKChartsModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<string> _labels = Model.labels;
+    List<KKHoriBarDataSetModel> _datasets = Model.datasets;
+}
+
+<div style="width: 600px;"><canvas id="scatter"></canvas></div>
+
+@section scripts{
+    <script>
+
+        const _labels = @(Html.Raw(JsonConvert.SerializeObject(_labels)))
+        const _datasets = @(Html.Raw(JsonConvert.SerializeObject(_datasets)))
+
+        const data = {
+            labels: _labels,
+            datasets: _datasets
+        };
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'y',
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each horizontal bar to be 2px wide
+                elements: {
+                    bar: {
+                        borderWidth: 1,
+                    }
+                },
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Chart.js Horizontal Bar Chart'
+                    }
+                }
+            },
+        };
+        const myChart = new Chart($('#scatter'), config);
+
+    </script>
+}

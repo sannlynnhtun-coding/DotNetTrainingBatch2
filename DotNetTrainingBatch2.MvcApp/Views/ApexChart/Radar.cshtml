@@ -1,0 +1,35 @@
+﻿@using static DotNetTrainingBatch2.MvcApp.Models.KKChartsModel
+@{
+    List<KKRadarSeriseModel> _series = Model.Series;
+    List<string> _categories = Model.Categories;
+}
+
+<div id="chart"></div>
+
+@section scripts {
+
+    <script>
+
+        let _series = @(Html.Raw(JsonConvert.SerializeObject(_series)));
+        let _categories = @(Html.Raw(JsonConvert.SerializeObject(_categories)));
+
+        var options = {
+            series: _series,
+            chart: {
+                height: 350,
+                type: 'radar',
+            },
+            title: {
+                text: 'Pubg KDA ratio'
+            },
+            xaxis: {
+                categories: _categories
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+
+    </script>
+}
