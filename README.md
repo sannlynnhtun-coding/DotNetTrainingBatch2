@@ -160,18 +160,19 @@ RepoDB
     Ado.Net
     Dapper
 
-- Chart [ApexChart, ChartJs, HighCharts, CanvasJS]
+[x] Chart [ApexChart, ChartJs, HighCharts, CanvasJS]
 
-Api Call [MVC]
-    HttpClient
-    RestClient
-    Refit
+[x] Api Call [MVC]
+    [x] HttpClient
+    [x] RestClient
+    [x] Refit
 
-Minimal Api
+[x] Minimal Api
 Text Logging
 Db Logging
 
-SignalR - (Insert Data => UpdateChart, Chat Message)
+[x] SignalR Realtime Chat App
+SignalR Realtime Chart
 UI Design
 Blazor CRUD [Server, WASM]
 ------------------------------------------------------
