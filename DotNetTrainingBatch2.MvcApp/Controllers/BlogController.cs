@@ -49,7 +49,7 @@ namespace DotNetTrainingBatch2.MvcApp.Controllers
                 //    PageCount = pageCount,
                 //    PageRowCount = rowCount,
                 //}
-                PageSetting = new PageSettingModel(pageNo, pageSize, pageCount, rowCount)
+                PageSetting = new PageSettingModel(pageNo, pageSize, pageCount, rowCount, "/Blog/List")
             };
            
             return View(model);

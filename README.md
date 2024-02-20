@@ -1,5 +1,16 @@
 # AKLMPSTYZDotNetCore
 
+[Clear git local cache](https://stackoverflow.com/questions/41863484/clear-git-local-cache)
+
+```bash
+
+git rm -r --cached .
+git add .
+git commit -am 'git cache cleared'
+git push
+
+```
+
 ```sql
 create proc Sp_GetBlogs
 @pageNo int,
