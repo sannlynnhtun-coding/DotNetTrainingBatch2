@@ -5,8 +5,21 @@ using DotNetTrainingBatch2.ConsoleApp.HttpClientExamples;
 using DotNetTrainingBatch2.ConsoleApp.RefitExamples;
 using System.Data;
 using System.Data.SqlClient;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .WriteTo.Console()
+    .WriteTo.File("logs/myapp.log", rollingInterval: RollingInterval.Hour)
+    .WriteTo
+    .MSSqlServer(
+        connectionString: "Server=.;Database=TestDb;User ID=sa;Password=sasa@123;TrustServerCertificate=True;",
+        sinkOptions: new MSSqlServerSinkOptions { TableName = "Tbl_Log", AutoCreateSqlTable = true })
+    .CreateLogger();
 
 Console.WriteLine("Hello, World!");
+Log.Information("Hello, world!");
 
 // Ctrl + .
 // Ctrl + D
@@ -82,9 +95,24 @@ Console.WriteLine("Hello, World!");
 //RefitExample refitExample = new RefitExample(); 
 //await refitExample.Run();
 
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-adoDotNetExample.Read(1, 10);
-adoDotNetExample.Read(5, 10);
+//AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//adoDotNetExample.Read(1, 10);
+//adoDotNetExample.Read(5, 10);
+
+int a = 10, b = 0;
+try
+{
+    Log.Debug("Dividing {A} by {B}", a, b);
+    Console.WriteLine(a / b);
+}
+catch (Exception ex)
+{
+    Log.Error(ex, "Something went wrong");
+}
+finally
+{
+    await Log.CloseAndFlushAsync();
+}
 
 Console.ReadKey();
 //Console.ReadLine();

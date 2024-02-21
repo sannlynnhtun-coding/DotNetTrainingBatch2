@@ -168,6 +168,11 @@ RepoDB
     [x] Refit
 
 [x] Minimal Api
+
+Serilog
+NLog
+Log4net
+
 Text Logging
 Db Logging
 
