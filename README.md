@@ -177,12 +177,11 @@ RepoDB
 
 [x] Minimal Api
 
-Serilog
-NLog
-Log4net
-
-Text Logging
-Db Logging
+[x] Serilog
+    [x] Text Logging
+    [x] Db Logging
+- NLog
+- Log4net
 
 [x] SignalR Realtime Chat App
 SignalR Realtime Chart
