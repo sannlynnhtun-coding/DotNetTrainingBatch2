@@ -1,4 +1,12 @@
 # AKLMPSTYZDotNetCore
+https://github.com/serilog/serilog/wiki/Getting-Started#example-application
+https://github.com/serilog/serilog-aspnetcore#serilogaspnetcore---
+https://github.com/serilog/serilog/wiki/Provided-Sinks
+https://github.com/serilog-mssql/serilog-sinks-mssqlserver
+
+https://www.c-sharpcorner.com/article/log4net-and-net-core/
+https://code-maze.com/aspnetcore-structured-logging-log4net/
+https://www.c-sharpcorner.com/article/introduction-to-nlog-with-asp-net-core2/
 
 [Clear git local cache](https://stackoverflow.com/questions/41863484/clear-git-local-cache)
 
@@ -170,8 +178,12 @@ RepoDB
     [x] Refit
 
 [x] Minimal Api
-Text Logging
-Db Logging
+
+[x] Serilog
+    [x] Text Logging
+    [x] Db Logging
+- NLog
+- Log4net
 
 [x] SignalR Realtime Chat App
 SignalR Realtime Chart
