@@ -28,6 +28,8 @@ end
 
 https://www.jqueryscript.net/popular/2023.html
 
+-pagination design https://camo.githubusercontent.com/da474a243ed23a783bc24aae5d7c771c30288cf952e74b693df934dd0d59345c/68747470733a2f2f757864776f726c642e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031382f31322f706167696e6174696f6e2d312e676966
+
 - sweetalert https://sweetalert2.github.io/
 
 - notiflix https://notiflix.github.io/ Notify Report Confirm Loading Block
