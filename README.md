@@ -1,4 +1,5 @@
 # AKLMPSTYZDotNetCore
+
 https://github.com/serilog/serilog/wiki/Getting-Started#example-application
 https://github.com/serilog/serilog-aspnetcore#serilogaspnetcore---
 https://github.com/serilog/serilog/wiki/Provided-Sinks
@@ -182,12 +183,14 @@ RepoDB
 [x] Serilog
     [x] Text Logging
     [x] Db Logging
-- NLog
-- Log4net
+[x] NLog
+[x] Log4net
 
-[x] SignalR Realtime Chat App
-SignalR Realtime Chart
+[x] Realtime Chat App using SignalR 
+[x] Realtime Chart using SignalR 
+
 UI Design
+
 Blazor CRUD [Server, WASM]
 ------------------------------------------------------
 Deploy WASM
