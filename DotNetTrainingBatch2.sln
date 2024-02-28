@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTrainingBatch2.ChatAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTrainingBatch2.MinimalApi", "DotNetTrainingBatch2.MinimalApi\DotNetTrainingBatch2.MinimalApi.csproj", "{938419CD-EDD0-4100-BC88-04F42DFB9E55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTrainingBatch2.RealtimeChartUsingSignalR", "DotNetTrainingBatch2.RealtimeChartUsingSignalR\DotNetTrainingBatch2.RealtimeChartUsingSignalR.csproj", "{BCCF49FE-FEF5-4E50-865C-D48565ADCA44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTrainingBatch2.RealtimeChartUsingSignalR", "DotNetTrainingBatch2.RealtimeChartUsingSignalR\DotNetTrainingBatch2.RealtimeChartUsingSignalR.csproj", "{BCCF49FE-FEF5-4E50-865C-D48565ADCA44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTrainingBatch2.ThemeApp", "DotNetTrainingBatch2.ThemeApp\DotNetTrainingBatch2.ThemeApp.csproj", "{359FE454-DE1C-428D-B173-12728525DFB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{BCCF49FE-FEF5-4E50-865C-D48565ADCA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCCF49FE-FEF5-4E50-865C-D48565ADCA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCCF49FE-FEF5-4E50-865C-D48565ADCA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{359FE454-DE1C-428D-B173-12728525DFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{359FE454-DE1C-428D-B173-12728525DFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{359FE454-DE1C-428D-B173-12728525DFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{359FE454-DE1C-428D-B173-12728525DFB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
