@@ -1,5 +1,14 @@
 # AKLMPSTYZDotNetCore
 
+Blazor Server (Server Side)
+- Db 
+Blazor Web Assembly (Client Side) download files into browser
+- Frontend => API Call (HttpClient)
+- Offline
+
+Blazor Server Blog
+Blazor Web Assembly Blog
+
 https://github.com/serilog/serilog/wiki/Getting-Started#example-application
 https://github.com/serilog/serilog-aspnetcore#serilogaspnetcore---
 https://github.com/serilog/serilog/wiki/Provided-Sinks
