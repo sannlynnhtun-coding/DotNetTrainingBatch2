@@ -1,6 +1,8 @@
+using System.Data.SqlClient;
 using DotNetTrainingBatch2.MinimalApi;
 using DotNetTrainingBatch2.MinimalApi.Features.Blog;
 using DotNetTrainingBatch2.MinimalApi.Models;
+using DotNetTrainingBatch2.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +16,16 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
 }, ServiceLifetime.Transient, ServiceLifetime.Transient);
+
+//builder.Services.AddScoped<AdoDotNetService>();
+//builder.Services.AddScoped(n => 
+//    new AdoDotNetService(new SqlConnectionStringBuilder(builder.Configuration.GetConnectionString("DbConnection"))));
+builder.Services.AddScoped(n =>
+{
+    string connectionString = builder.Configuration.GetConnectionString("DbConnection")!;
+    SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder(connectionString);
+    return new AdoDotNetService(sqlConnectionStringBuilder);
+});
 
 var app = builder.Build();
 

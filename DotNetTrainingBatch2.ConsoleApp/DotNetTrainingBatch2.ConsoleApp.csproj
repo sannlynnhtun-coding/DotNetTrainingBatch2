@@ -25,4 +25,8 @@
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\DotNetTrainingBatch2.Services\DotNetTrainingBatch2.Services.csproj" />
+	</ItemGroup>
+
 </Project>

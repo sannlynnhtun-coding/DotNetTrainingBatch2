@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetTrainingBatch2.Services\DotNetTrainingBatch2.Services.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -198,6 +198,9 @@ RepoDB
 [x] Realtime Chat App using SignalR 
 [x] Realtime Chart using SignalR 
 
+[x] Register Dapper Service to ASP.NET Core Web MVC / API / Minimal API
+[x] Register ADO.Net Service to ASP.NET Core Web MVC / API / Minimal API
+
 UI Design
 
 Blazor CRUD [Server, WASM]
