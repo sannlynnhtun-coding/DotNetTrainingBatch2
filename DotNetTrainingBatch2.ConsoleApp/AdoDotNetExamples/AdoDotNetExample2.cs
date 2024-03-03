@@ -135,52 +135,36 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
 
         private void Update(int id, string title, string author, string content)
         {
-            SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
-            {
-                DataSource = ".",
-                InitialCatalog = "AKLMPSTYZDotNetCore",
-                UserID = "sa",
-                Password = "sa@123"
-            };
-            SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-
             string query = @"UPDATE [dbo].[Tbl_Blog]
    SET [Blog_Title] = @Blog_Title
       ,[Blog_Author] = @Blog_Author
       ,[Blog_Content] = @Blog_Content
  WHERE Blog_Id = @Blog_Id";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Blog_Id", id);
-            command.Parameters.AddWithValue("@Blog_Title", title);
-            command.Parameters.AddWithValue("@Blog_Author", author);
-            command.Parameters.AddWithValue("@Blog_Content", content);
-            int result = command.ExecuteNonQuery();
-            connection.Close();
 
+            List<SqlParameter> lstParameters = new List<SqlParameter>()
+            {
+                new("@Blog_Id", id),
+                new("@Blog_Title", title),
+                new("@Blog_Author", author),
+                new("@Blog_Content", content),
+            };
+            
+            int result = _adoDotNetService.Execute(query, sqlParameters: lstParameters.ToArray());
             string message = result > 0 ? "Updating Successful." : "Updating Failed.";
             Console.WriteLine(message);
         }
 
         private void Delete(int id)
         {
-            SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
-            {
-                DataSource = ".",
-                InitialCatalog = "AKLMPSTYZDotNetCore",
-                UserID = "sa",
-                Password = "sa@123"
-            };
-            SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-
             string query = @"DELETE FROM [dbo].[Tbl_Blog]
       WHERE Blog_Id = @Blog_Id";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Blog_Id", id);
-            int result = command.ExecuteNonQuery();
-            connection.Close();
 
+            List<SqlParameter> lstParameters = new List<SqlParameter>()
+            {
+                new("@Blog_Id", id)
+            };
+            
+            int result = _adoDotNetService.Execute(query, sqlParameters: lstParameters.ToArray());
             string message = result > 0 ? "Deleting Successful." : "Deleting Failed.";
             Console.WriteLine(message);
         }
