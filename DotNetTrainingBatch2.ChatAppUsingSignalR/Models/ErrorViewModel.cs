@@ -1,4 +1,4 @@
-namespace AKLMPSTYZDotNetCore.ChatAppUsingSignalR.Models
+namespace DotNetTrainingBatch2.ChatAppUsingSignalR.Models
 {
     public class ErrorViewModel
     {

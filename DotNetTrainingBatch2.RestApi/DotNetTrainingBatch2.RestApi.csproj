@@ -19,4 +19,12 @@
 		<PackageReference Include="Dapper" Version="2.1.24" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\DotNetTrainingBatch2.Models\DotNetTrainingBatch2.Models.csproj" />
+	</ItemGroup>
+
 </Project>

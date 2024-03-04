@@ -1,0 +1,33 @@
+﻿@page "/setup/blog"
+@inject HttpClient HttpClient
+
+@if (Model is not null)
+{
+    int count = 0;
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Action</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Content</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Data)
+        {
+            <tr>
+                <th scope="row">@(++count)</th>
+                <td>
+                    <a href="/Blog/Edit/@item.Blog_Id" class="btn btn-warning">Edit</a>
+                    <a href="/Blog/Delete/@item.Blog_Id" class="btn btn-danger">Delete</a>
+                </td>
+                <td>@item.Blog_Title</td>
+                <td>@item.Blog_Author</td>
+                <td>@item.Blog_Content</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -1,8 +1,8 @@
-﻿using AKLMPSTYZDotNetCore.ChatAppUsingSignalR.Models;
+﻿using System.Diagnostics;
+using DotNetTrainingBatch2.ChatAppUsingSignalR.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
-namespace AKLMPSTYZDotNetCore.ChatAppUsingSignalR.Controllers
+namespace DotNetTrainingBatch2.ChatAppUsingSignalR.Controllers
 {
     public class HomeController : Controller
     {

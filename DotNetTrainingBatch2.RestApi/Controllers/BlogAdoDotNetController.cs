@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
-using DotNetTrainingBatch2.RestApi.Models;
+using DotNetTrainingBatch2.Models;
 
 namespace DotNetTrainingBatch2.RestApi.Controllers
 {

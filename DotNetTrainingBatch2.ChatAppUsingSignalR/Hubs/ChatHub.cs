@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace AKLMPSTYZDotNetCore.ChatAppUsingSignalR.Hubs
+namespace DotNetTrainingBatch2.ChatAppUsingSignalR.Hubs
 {
     public class ChatHub : Hub
     {

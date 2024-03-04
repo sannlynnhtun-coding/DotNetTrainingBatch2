@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DotNetTrainingBatch2.RestApi.Models;
+using DotNetTrainingBatch2.Models;
 
 namespace DotNetTrainingBatch2.RestApi
 {
@@ -20,9 +20,9 @@ namespace DotNetTrainingBatch2.RestApi
             SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
             {
                 DataSource = ".",
-                InitialCatalog = "AKLMPSTYZDotNetCore",
+                InitialCatalog = "ACMDotNetCore",
                 UserID = "sa",
-                Password = "sa@123",
+                Password = "sasa@123",
                 TrustServerCertificate = true
             };
             optionsBuilder.UseSqlServer(_sqlConnectionStringBuilder.ConnectionString);

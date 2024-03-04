@@ -1,4 +1,4 @@
-﻿using DotNetTrainingBatch2.RestApi.Models;
+﻿using DotNetTrainingBatch2.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,7 +38,7 @@ namespace DotNetTrainingBatch2.RestApi.Controllers
             {
                 pageCount++;
             }
-            return Ok(new
+            return Ok(new BlogListResponseModel
             {
                 IsEndOfPage = pageNo >= pageCount,
                 PageCount = pageCount,

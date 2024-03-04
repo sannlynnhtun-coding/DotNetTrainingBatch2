@@ -1,4 +1,4 @@
-using AKLMPSTYZDotNetCore.ChatAppUsingSignalR.Hubs;
+using DotNetTrainingBatch2.ChatAppUsingSignalR.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 

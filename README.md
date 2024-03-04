@@ -1,5 +1,7 @@
 # AKLMPSTYZDotNetCore
 
+https://stackoverflow.com/questions/31942037/how-to-enable-cors-in-asp-net-core
+
 Blazor Server (Server Side)
 - Db 
 Blazor Web Assembly (Client Side) download files into browser
@@ -199,19 +201,25 @@ RepoDB
 [x] Realtime Chart using SignalR 
 
 [x] Register ADO.Net Service to ASP.NET Core Web MVC / API / Minimal API
-Register Dapper Service to ASP.NET Core Web MVC / API / Minimal API
+[x] Register Dapper Service to ASP.NET Core Web MVC / API / Minimal API
 
-UI Design
+[x] UI Design
 
-Blazor CRUD [Server, WASM]
-------------------------------------------------------
-Deploy WASM
-Deploy on IIS
+[x] Blazor CRUD [Server, WASM]
+    [x] Blazor Web Assembly (Offline, download file into client) [Frontend] [HttpClient]
+    [x] Blazor Web Server (MVC, no javascript, client to server C#) [Frontend + Backend]
+
 
 Middleware For MVC
 
+Deploy WASM
+Deploy on IIS
+
+------------------------------------------------------
+
 GraphQL
 gRPC
+
 ```
 
 Nuget Package = npm
