@@ -24,6 +24,7 @@ namespace DotNetTrainingBatch2.ConsoleApp.EFCoreExamples
             Delete(13);
         }
 
+        #region Read
         public void Read()
         {
             var lst = _dbContext.Blogs.AsNoTracking().ToList();
@@ -35,7 +36,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.EFCoreExamples
                 Console.WriteLine(item.Blog_Content);
             }
         }
+        #endregion
 
+        #region Edit
         private void Edit(int id)
         {
             BlogDataModel? item = _dbContext.Blogs.FirstOrDefault(x => x.Blog_Id == id);
@@ -49,7 +52,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.EFCoreExamples
             Console.WriteLine(item.Blog_Author);
             Console.WriteLine(item.Blog_Content);
         }
+        #endregion
 
+        #region Create
         private void Create(string title, string author, string content)
         {
             BlogDataModel blog = new BlogDataModel()
@@ -65,7 +70,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.EFCoreExamples
             string message = result > 0 ? "Saving Successful." : "Saving Failed.";
             Console.WriteLine(message);
         }
+        #endregion
 
+        #region Update
         private void Update(int id, string title, string author, string content)
         {
             BlogDataModel? item = _dbContext.Blogs.FirstOrDefault(x => x.Blog_Id == id);
@@ -84,7 +91,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.EFCoreExamples
             string message = result > 0 ? "Updating Successful." : "Updating Failed.";
             Console.WriteLine(message);
         }
+        #endregion
 
+        #region Delete
         private void Delete(int id)
         {
             BlogDataModel? item = _dbContext.Blogs.FirstOrDefault(x => x.Blog_Id == id);
@@ -100,5 +109,6 @@ namespace DotNetTrainingBatch2.ConsoleApp.EFCoreExamples
             string message = result > 0 ? "Deleting Successful." : "Deleting Failed.";
             Console.WriteLine(message);
         }
+        #endregion
     }
 }

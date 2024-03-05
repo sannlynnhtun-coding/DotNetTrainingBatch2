@@ -19,7 +19,7 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             //Update(1, "Test Title", "Test Author", "Test Content");
             Delete(13);
         }
-
+        #region Read
         private void Read()
         {
             SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
@@ -35,10 +35,10 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             Console.WriteLine("Connection opened.");
 
             string query = @"SELECT [Blog_Id]
-      ,[Blog_Title]
-      ,[Blog_Author]
-      ,[Blog_Content]
-  FROM [dbo].[Tbl_Blog]";
+                          ,[Blog_Title]
+                          ,[Blog_Author]
+                          ,[Blog_Content]
+                      FROM [dbo].[Tbl_Blog]";
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
@@ -57,7 +57,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
                 Console.WriteLine("-----------------");
             }
         }
+        #endregion
 
+        #region ReadWithPagination
         public void Read(int pageNo, int pageSize)
         {
             SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
@@ -91,7 +93,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
                 Console.WriteLine("-----------------");
             }
         }
+        #endregion
 
+        #region Edit
         private void Edit(int id)
         {
             SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
@@ -105,10 +109,10 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             connection.Open();
 
             string query = @"SELECT [Blog_Id]
-      ,[Blog_Title]
-      ,[Blog_Author]
-      ,[Blog_Content]
-  FROM [dbo].[Tbl_Blog] where Blog_Id = @Blog_Id";
+                          ,[Blog_Title]
+                          ,[Blog_Author]
+                          ,[Blog_Content]
+                      FROM [dbo].[Tbl_Blog] where Blog_Id = @Blog_Id";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Blog_Id", id);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
@@ -130,7 +134,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             Console.WriteLine("Content => " + dr["Blog_Content"]);
             Console.WriteLine("-----------------");
         }
+        #endregion
 
+        #region Create
         private void Create(string title, string author, string content)
         {
             SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
@@ -144,13 +150,13 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             connection.Open();
 
             string query = @"INSERT INTO [dbo].[Tbl_Blog]
-           ([Blog_Title]
-           ,[Blog_Author]
-           ,[Blog_Content])
-     VALUES
-           (@Blog_Title
-           ,@Blog_Author
-           ,@Blog_Content)";
+                           ([Blog_Title]
+                           ,[Blog_Author]
+                           ,[Blog_Content])
+                     VALUES
+                           (@Blog_Title
+                           ,@Blog_Author
+                           ,@Blog_Content)";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Blog_Title", title);
             command.Parameters.AddWithValue("@Blog_Author", author);
@@ -161,7 +167,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             string message = result > 0 ? "Saving Successful." : "Saving Failed.";
             Console.WriteLine(message);
         }
+        #endregion
 
+        #region Update
         private void Update(int id, string title, string author, string content)
         {
             SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
@@ -175,10 +183,10 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             connection.Open();
 
             string query = @"UPDATE [dbo].[Tbl_Blog]
-   SET [Blog_Title] = @Blog_Title
-      ,[Blog_Author] = @Blog_Author
-      ,[Blog_Content] = @Blog_Content
- WHERE Blog_Id = @Blog_Id";
+                           SET [Blog_Title] = @Blog_Title
+                              ,[Blog_Author] = @Blog_Author
+                              ,[Blog_Content] = @Blog_Content
+                         WHERE Blog_Id = @Blog_Id";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Blog_Id", id);
             command.Parameters.AddWithValue("@Blog_Title", title);
@@ -190,7 +198,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             string message = result > 0 ? "Updating Successful." : "Updating Failed.";
             Console.WriteLine(message);
         }
+        #endregion
 
+        #region Delete
         private void Delete(int id)
         {
             SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
@@ -204,7 +214,7 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             connection.Open();
 
             string query = @"DELETE FROM [dbo].[Tbl_Blog]
-      WHERE Blog_Id = @Blog_Id";
+                           WHERE Blog_Id = @Blog_Id";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Blog_Id", id);
             int result = command.ExecuteNonQuery();
@@ -213,5 +223,6 @@ namespace DotNetTrainingBatch2.ConsoleApp.AdoDotNetExamples
             string message = result > 0 ? "Deleting Successful." : "Deleting Failed.";
             Console.WriteLine(message);
         }
+        #endregion
     }
 }

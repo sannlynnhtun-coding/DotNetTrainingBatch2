@@ -37,11 +37,11 @@ namespace DotNetTrainingBatch2.ConsoleApp.RestClientExamples
             await Delete(7);
 
         }
-
+        #region Read
         public async Task Read()
         {
             RestClient client = new RestClient();
-            RestRequest request = new RestRequest(_blogEndpoint, Method.Get);    
+            RestRequest request = new RestRequest(_blogEndpoint, Method.Get);
             //await client.GetAsync(request);
             var response = await client.ExecuteAsync(request);
 
@@ -58,7 +58,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.RestClientExamples
                 }
             }
         }
+        #endregion
 
+        #region Eidt
         public async Task Edit(int id)
         {
             RestClient client = new RestClient();
@@ -80,7 +82,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.RestClientExamples
                 Console.WriteLine(response.Content!);
             }
         }
+        #endregion
 
+        #region Create
         public async Task Create(string title, string author, string content)
         {
             var blog = new BlogDataModel
@@ -96,7 +100,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.RestClientExamples
 
             Console.WriteLine(response.Content!);
         }
+        #endregion
 
+        #region Update
         public async Task Update(int id, string title, string author, string content)
         {
             BlogDataModel blog = new BlogDataModel
@@ -113,7 +119,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.RestClientExamples
             RestResponse response = await client.ExecuteAsync(request);
             Console.WriteLine(response.Content!);
         }
+        #endregion
 
+        #region Delete
         public async Task Delete(int id)
         {
             RestClient client = new RestClient();
@@ -121,5 +129,6 @@ namespace DotNetTrainingBatch2.ConsoleApp.RestClientExamples
             RestResponse response = await client.ExecuteAsync(request);
             Console.WriteLine(response.Content!);
         }
+        #endregion
     }
 }

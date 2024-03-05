@@ -20,6 +20,7 @@ namespace DotNetTrainingBatch2.ConsoleApp.RefitExamples
             await Create("Test Title", "Test Author", "Test Content");
         }
 
+        #region Read
         public async Task Read()
         {
             var lst = await _blogApi.GetBlogs();
@@ -31,7 +32,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.RefitExamples
                 Console.WriteLine(item.Blog_Content);
             }
         }
+        #endregion
 
+        #region Edit
         public async Task Edit(int id)
         {
             try
@@ -52,7 +55,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.RefitExamples
             //    Console.WriteLine(ex.ToString());
             //}
         }
+        #endregion
 
+        #region Create
         public async Task Create(string title, string author, string content)
         {
             var message = await _blogApi.CreateBlog(new BlogDataModel
@@ -63,5 +68,6 @@ namespace DotNetTrainingBatch2.ConsoleApp.RefitExamples
             });
             await Console.Out.WriteLineAsync(message);
         }
+        #endregion
     }
 }

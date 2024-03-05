@@ -42,7 +42,7 @@ namespace DotNetTrainingBatch2.ConsoleApp.DapperExamples
             //Update(1, "Test Title", "Test Author", "Test Content");
             Delete(13);
         }
-
+        #region Read
         private void Read()
         {
             //          using (IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString))
@@ -63,10 +63,10 @@ namespace DotNetTrainingBatch2.ConsoleApp.DapperExamples
             //          }
 
             string query = @"SELECT [Blog_Id]
-      ,[Blog_Title]
-      ,[Blog_Author]
-      ,[Blog_Content]
-  FROM [dbo].[Tbl_Blog]";
+                          ,[Blog_Title]
+                          ,[Blog_Author]
+                          ,[Blog_Content]
+                      FROM [dbo].[Tbl_Blog]";
 
             using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             List<BlogDataModel> lst = db.Query<BlogDataModel>(query).ToList();
@@ -78,14 +78,16 @@ namespace DotNetTrainingBatch2.ConsoleApp.DapperExamples
                 Console.WriteLine(item.Blog_Content);
             }
         }
+        #endregion
 
+        #region Eidt
         private void Edit(int id)
         {
             string query = @"SELECT [Blog_Id]
-      ,[Blog_Title]
-      ,[Blog_Author]
-      ,[Blog_Content]
-  FROM [dbo].[Tbl_Blog] where Blog_Id = @Blog_Id";
+                          ,[Blog_Title]
+                          ,[Blog_Author]
+                          ,[Blog_Content]
+                      FROM [dbo].[Tbl_Blog] where Blog_Id = @Blog_Id";
 
             using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             //BlogDataModel? item = db.Query<BlogDataModel>(query, new { Blog_Id = id }).FirstOrDefault();
@@ -101,17 +103,19 @@ namespace DotNetTrainingBatch2.ConsoleApp.DapperExamples
             Console.WriteLine(item.Blog_Author);
             Console.WriteLine(item.Blog_Content);
         }
+        #endregion
 
+        #region Create
         private void Create(string title, string author, string content)
         {
             string query = @"INSERT INTO [dbo].[Tbl_Blog]
-           ([Blog_Title]
-           ,[Blog_Author]
-           ,[Blog_Content])
-     VALUES
-           (@Blog_Title
-           ,@Blog_Author
-           ,@Blog_Content)";
+                           ([Blog_Title]
+                           ,[Blog_Author]
+                           ,[Blog_Content])
+                     VALUES
+                           (@Blog_Title
+                           ,@Blog_Author
+                           ,@Blog_Content)";
             BlogDataModel blog = new BlogDataModel()
             {
                 Blog_Title = title,
@@ -131,14 +135,16 @@ namespace DotNetTrainingBatch2.ConsoleApp.DapperExamples
             string message = result > 0 ? "Saving Successful." : "Saving Failed.";
             Console.WriteLine(message);
         }
+        #endregion
 
+        #region Update
         private void Update(int id, string title, string author, string content)
         {
             string query = @"UPDATE [dbo].[Tbl_Blog]
-   SET [Blog_Title] = @Blog_Title
-      ,[Blog_Author] = @Blog_Author
-      ,[Blog_Content] = @Blog_Content
- WHERE Blog_Id = @Blog_Id";
+                           SET [Blog_Title] = @Blog_Title
+                              ,[Blog_Author] = @Blog_Author
+                              ,[Blog_Content] = @Blog_Content
+                         WHERE Blog_Id = @Blog_Id";
             BlogDataModel blog = new BlogDataModel()
             {
                 Blog_Id = id,
@@ -153,11 +159,13 @@ namespace DotNetTrainingBatch2.ConsoleApp.DapperExamples
             string message = result > 0 ? "Updating Successful." : "Updating Failed.";
             Console.WriteLine(message);
         }
+        #endregion
 
+        #region Delete
         private void Delete(int id)
         {
             string query = @"DELETE FROM [dbo].[Tbl_Blog]
-      WHERE Blog_Id = @Blog_Id";
+                          WHERE Blog_Id = @Blog_Id";
             BlogDataModel blog = new BlogDataModel()
             {
                 Blog_Id = id,
@@ -169,5 +177,6 @@ namespace DotNetTrainingBatch2.ConsoleApp.DapperExamples
             string message = result > 0 ? "Deleting Successful." : "Deleting Failed.";
             Console.WriteLine(message);
         }
+        #endregion
     }
 }

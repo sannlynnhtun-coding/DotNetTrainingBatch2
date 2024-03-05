@@ -37,7 +37,7 @@ namespace DotNetTrainingBatch2.ConsoleApp.HttpClientExamples
             //await Update(4004, "New Title", "New Author", "New Content");
             //await Delete(5);
         }
-
+        #region Read
         public async Task Read()
         {
             HttpClient client = new HttpClient();
@@ -55,7 +55,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.HttpClientExamples
                 }
             }
         }
+        #endregion
 
+        #region Edit
         public async Task Edit(int id)
         {
             HttpClient client = new HttpClient();
@@ -75,7 +77,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.HttpClientExamples
                 Console.WriteLine(await response.Content.ReadAsStringAsync());
             }
         }
+        #endregion
 
+        #region Create
         public async Task Create(string title, string author, string content)
         {
             var blog = new BlogDataModel
@@ -91,7 +95,9 @@ namespace DotNetTrainingBatch2.ConsoleApp.HttpClientExamples
             HttpResponseMessage response = await client.PostAsync(_blogEndpoint, httpContent);
             Console.WriteLine(await response.Content.ReadAsStringAsync());
         }
+        #endregion
 
+        #region Update
         public async Task Update(int id, string title, string author, string content)
         {
             BlogDataModel blog = new BlogDataModel
@@ -109,12 +115,15 @@ namespace DotNetTrainingBatch2.ConsoleApp.HttpClientExamples
             HttpResponseMessage response = await client.PutAsync($"{_blogEndpoint}/{id}", httpContent);
             Console.WriteLine(await response.Content.ReadAsStringAsync());
         }
+        #endregion
 
+        #region Delete
         public async Task Delete(int id)
         {
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.DeleteAsync($"{_blogEndpoint}/{id}");
             Console.WriteLine(await response.Content.ReadAsStringAsync());
         }
+        #endregion
     }
 }
