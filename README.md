@@ -1,7 +1,5 @@
 
 # DotNetCoreTrainingBatch2
-- [CORS Enable in Asp-net-core](https://stackoverflow.com/questions/31942037/how-to-enable-cors-in-asp-net-core )
-
 
 Blazor Server (Server Side)
 - Db 
@@ -22,6 +20,7 @@ Blazor Web Assembly Blog
 - [ Log4Net And .NET Core](https://www.c-sharpcorner.com/article/log4net-and-net-core/)
 - [Structured Logging in ASP.NET Core With log4net](https://code-maze.com/aspnetcore-structured-logging-log4net/)
 -  [Introduction To NLog With ASP.NET Coret](https://www.c-sharpcorner.com/article/introduction-to-nlog-with-asp-net-core2/)
+- [CORS Enable in Asp-net-core](https://stackoverflow.com/questions/31942037/how-to-enable-cors-in-asp-net-core )
 
 
 [Clear git local cache](https://stackoverflow.com/questions/41863484/clear-git-local-cache)
@@ -54,7 +53,7 @@ https://www.jqueryscript.net/popular/2023.html
 
 - [Pagination Design ](https://camo.githubusercontent.com/da474a243ed23a783bc24aae5d7c771c30288cf952e74b693df934dd0d59345c/68747470733a2f2f757864776f726c642e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031382f31322f706167696e6174696f6e2d312e676966)
 - [Sweetalert ](https://sweetalert2.github.io/)
-- [Notiflix ](https://notiflix.github.io) [Notify Report Confirm Loading Block]
+- [Notiflix ](https://notiflix.github.io) 
 - [Datatable](https://datatables.net/)
 - [Datetime Picker ](https://fengyuanchen.github.io/datepicker/ )
 - [Ladda Button](https://cdnjs.com/libraries/ladda-bootstrap  )
@@ -70,10 +69,10 @@ Repo
 - CRUD
 
 Data Access 1
-CRUD
+ - CRUD
 
 Data Access 2
-CRUD
+- CRUD
 
 Business1
 Transfer
@@ -84,14 +83,14 @@ Transfer
 Repo = Data Access 1
 
 Data Access 1
-Check
-Debit
-Credit
+ - Check
+ - Debit
+ - Credit
 
 Data Access 2
-Check
-Debit
-Credit
+ - Check
+ - Debit
+ - Credit
 
 Dependency injection is a powerful technique that promotes loosely coupled, maintainable, and testable code. By applying dependency injection principles in your C# projects, you can achieve better modularity, reusability, and flexibility.
 
@@ -99,6 +98,7 @@ Dependency injection is a powerful technique that promotes loosely coupled, main
 )
 [RestSharp](https://restsharp.dev/authenticators.html
 )
+
 XML
 JSON
 Javascript Object
@@ -106,7 +106,6 @@ JSON Object
 Format / Compress
 
 API
-
 HTTP Method
 -----------------
 Get=> Read
@@ -218,4 +217,4 @@ gRPC
 
 ```
 
-Nuget Package = npm
+NuGet Package = npm
