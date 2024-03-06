@@ -1,0 +1,24 @@
+﻿@page "/setup/blog/create"
+@inject HttpClient HttpClient
+@inject IJSRuntime JsRuntime
+
+<h1>New Blog</h1>
+
+<div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" @bind-value="requestModel.Blog_Title" name="Blog_Title">
+</div>
+<div class="mb-3">
+    <label class="form-label">Author</label>
+    <input type="text" class="form-control" @bind-value="requestModel.Blog_Author" name="Blog_Author">
+</div>
+<div class="mb-3">
+    <label class="form-label">Content</label>
+    <input type="text" class="form-control" @bind-value="requestModel.Blog_Content" name="Blog_Content">
+</div>
+<a href="/Blog" class="btn btn-dark">Cancel</a>
+<button type="button" class="btn btn-success" @onclick="Save">Save</button>
+
+@code {
+
+}

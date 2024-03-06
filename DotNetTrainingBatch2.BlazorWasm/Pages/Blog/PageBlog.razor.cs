@@ -1,6 +1,7 @@
 ﻿using DotNetTrainingBatch2.Models;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
+using static MudBlazor.CategoryTypes;
 
 namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
 {
@@ -21,7 +22,7 @@ namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
             }
         }
 
-        private async Task List(int pageNo, int pageSize)
+        private async Task List(int pageNo, int pageSize = 10)
         {
             _pageNo = pageNo;
             _pageSize = pageSize;
@@ -32,6 +33,12 @@ namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
                 Model = JsonConvert.DeserializeObject<BlogListResponseModel>(jsonStr)!;
                 StateHasChanged();
             }
+        }
+
+        private async Task PageChanged(int i)
+        {
+            _pageNo = i;
+            await List(_pageNo);
         }
     }
 }

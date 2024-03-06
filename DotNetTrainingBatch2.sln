@@ -24,9 +24,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTrainingBatch2.ThemeA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTrainingBatch2.Services", "DotNetTrainingBatch2.Services\DotNetTrainingBatch2.Services.csproj", "{19ACEF8F-2084-4EE3-922C-1220D5AFAC31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTrainingBatch2.BlazorWasm", "DotNetTrainingBatch2.BlazorWasm\DotNetTrainingBatch2.BlazorWasm.csproj", "{9E49E924-A835-482D-91F3-B9A9BC443BFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTrainingBatch2.BlazorWasm", "DotNetTrainingBatch2.BlazorWasm\DotNetTrainingBatch2.BlazorWasm.csproj", "{9E49E924-A835-482D-91F3-B9A9BC443BFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTrainingBatch2.Models", "DotNetTrainingBatch2.Models\DotNetTrainingBatch2.Models.csproj", "{0830FEF3-D096-4A2C-88A9-32D93EEA7FBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTrainingBatch2.Models", "DotNetTrainingBatch2.Models\DotNetTrainingBatch2.Models.csproj", "{0830FEF3-D096-4A2C-88A9-32D93EEA7FBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

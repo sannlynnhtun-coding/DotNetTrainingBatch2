@@ -1,6 +1,8 @@
 ﻿@page "/setup/blog"
 @inject HttpClient HttpClient
 
+<NavLink href="/setup/blog/create" class="btn btn-success">Create</NavLink>
+
 @if (Model is not null)
 {
     int count = 0;
@@ -18,7 +20,7 @@
         @foreach (var item in Model.Data)
         {
             <tr>
-                <th scope="row">@(++count)</th>
+                <th scope="row">@(++count + ((Model.PageNo - 1) * Model.PageSize))</th>
                 <td>
                     <a href="/Blog/Edit/@item.Blog_Id" class="btn btn-warning">Edit</a>
                     <a href="/Blog/Delete/@item.Blog_Id" class="btn btn-danger">Delete</a>
@@ -30,4 +32,5 @@
         }
         </tbody>
     </table>
+    <MudPagination SelectedChanged="PageChanged" Count="@Model.PageCount" Class="pa-4" />
 }
