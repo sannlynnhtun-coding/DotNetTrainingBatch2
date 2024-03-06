@@ -23,7 +23,7 @@
                 <th scope="row">@(++count + ((Model.PageNo - 1) * Model.PageSize))</th>
                 <td>
                     <a href="/Blog/Edit/@item.Blog_Id" class="btn btn-warning">Edit</a>
-                    <a href="/Blog/Delete/@item.Blog_Id" class="btn btn-danger">Delete</a>
+                    <button type="button" @onclick="() => Delete(item.Blog_Id)" class="btn btn-danger">Delete</button>
                 </td>
                 <td>@item.Blog_Title</td>
                 <td>@item.Blog_Author</td>

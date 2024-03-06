@@ -1,5 +1,7 @@
-﻿using DotNetTrainingBatch2.Models;
+﻿using DotNetTrainingBatch2.BlazorWasm.Shared;
+using DotNetTrainingBatch2.Models;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using Newtonsoft.Json;
 using static MudBlazor.CategoryTypes;
 
@@ -39,6 +41,22 @@ namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
         {
             _pageNo = i;
             await List(_pageNo);
+        }
+
+        private async Task Delete(int id)
+        {
+            var parameters = new DialogParameters<ConfirmDialog>();
+            parameters.Add(x => x.Message,
+                "Are you sure want to delete?");
+
+            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+            var dialog = await DialogService.ShowAsync<ConfirmDialog>("Confirm", parameters, options);
+            var result = await dialog.Result;
+            if (result.Canceled) return;
+
+            // logic
+            //DeleteBlog();
         }
     }
 }
