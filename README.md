@@ -132,8 +132,20 @@ HTTP Status Code
 [EF Core Database First](https://www.learnentityframeworkcore.com/walkthroughs/existing-database)
 [dotNet tool install --global dotnet-ef](https://www.entityframeworktutorial.net/efcore/create-model-for-existing-database-in-ef-core.aspx#google_vignette)
 
+Install DotNet EF
+```
+dotnet tool install --global dotnet-ef --version 7
+```
+
+Package Manager Console
+```bash
 Scaffold-DbContext "Server=.\SQLExpress;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+```
+
+Terminal
+```
 dotnet ef dbcontext scaffold "Server=.;Database=TestDb;User ID=sa;Password=sa@123;Trusted_Connection=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -c AppDbContext -o EFDbContextModel
+```
 
 EFCore
 Code First (C# Class => Database Table)
