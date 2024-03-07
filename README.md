@@ -219,7 +219,7 @@ RepoDB
 
 Middleware For MVC
 
-Deploy WASM
+[x] [Deploy WASM](https://swimburger.net/blog/dotnet/how-to-deploy-blazor-webassembly-to-netlify)
 [x] Deploy on IIS
 
 ------------------------------------------------------
