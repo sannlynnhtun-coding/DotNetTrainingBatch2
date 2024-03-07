@@ -121,7 +121,7 @@ HTTP Status Code
 - 404 - Not Found
 - 500 - Internal Server Error
 - 402, 403, 409
-
+----------
 - 100 - 199
 - 200 - 299
 - 300 - 399
