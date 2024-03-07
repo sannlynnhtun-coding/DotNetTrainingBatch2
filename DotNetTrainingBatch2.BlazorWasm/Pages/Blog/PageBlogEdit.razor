@@ -1,0 +1,26 @@
+﻿@page "/setup/blog/edit/{id:int}"
+@inject HttpClient HttpClient
+<h3>PageBlogEdit</h3>
+
+
+@if (item is not null)
+{
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" name="Blog_Title" @bind-value="item.Blog_Title" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Author</label>
+        <input type="text" class="form-control" @bind-value="item.Blog_Author" name="Blog_Author" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Content</label>
+        <input type="text" class="form-control" name="Blog_Content" @bind-value="item.Blog_Content" required />
+    </div>
+    <NavLink href="/setup/blog" class="btn btn-dark">Back</NavLink>
+    <button type="button" class="btn btn-success" @onclick="() => Update(item.Blog_Id)">Update</button>
+}
+
+@code {
+
+}

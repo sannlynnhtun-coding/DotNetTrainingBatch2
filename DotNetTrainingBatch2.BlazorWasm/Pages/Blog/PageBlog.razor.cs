@@ -1,9 +1,7 @@
 ﻿using DotNetTrainingBatch2.BlazorWasm.Shared;
 using DotNetTrainingBatch2.Models;
-using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using Newtonsoft.Json;
-using static MudBlazor.CategoryTypes;
 
 namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
 {
@@ -43,6 +41,10 @@ namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
             await List(_pageNo);
         }
 
+        private void Edit(int id)
+        {
+            Nav.NavigateTo($"setup/blog/edit/{id}");
+        }
         private async Task Delete(int id)
         {
             var parameters = new DialogParameters<ConfirmDialog>();
@@ -57,6 +59,16 @@ namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
 
             // logic
             //DeleteBlog();
+            var responce = await HttpClient.DeleteAsync($"api/Blog/{id}");
+            if (responce.IsSuccessStatusCode)
+            {
+                await List(_pageNo, _pageSize);
+                Snackbar.Add("Blog deleted successfully", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add("Failed to delete the blog. Please try again.", Severity.Error);
+            }
         }
     }
 }

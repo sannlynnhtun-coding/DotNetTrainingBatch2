@@ -8,28 +8,28 @@
     int count = 0;
     <table class="table">
         <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Action</th>
-            <th scope="col">Title</th>
-            <th scope="col">Author</th>
-            <th scope="col">Content</th>
-        </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Action</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Content</th>
+            </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model.Data)
-        {
-            <tr>
-                <th scope="row">@(++count + ((Model.PageNo - 1) * Model.PageSize))</th>
-                <td>
-                    <a href="/Blog/Edit/@item.Blog_Id" class="btn btn-warning">Edit</a>
-                    <button type="button" @onclick="() => Delete(item.Blog_Id)" class="btn btn-danger">Delete</button>
-                </td>
-                <td>@item.Blog_Title</td>
-                <td>@item.Blog_Author</td>
-                <td>@item.Blog_Content</td>
-            </tr>
-        }
+            @foreach (var item in Model.Data)
+            {
+                <tr>
+                    <th scope="row">@(++count + ((Model.PageNo - 1) * Model.PageSize))</th>
+                    <td>
+                        <NavLink class="btn btn-warning" @onclick="() => Edit(item.Blog_Id)">Edit</NavLink>
+                        <button type="button" @onclick="() => Delete(item.Blog_Id)" class="btn btn-danger">Delete</button>
+                    </td>
+                    <td>@item.Blog_Title</td>
+                    <td>@item.Blog_Author</td>
+                    <td>@item.Blog_Content</td>
+                </tr>
+            }
         </tbody>
     </table>
     <MudPagination SelectedChanged="PageChanged" Count="@Model.PageCount" Class="pa-4" />
