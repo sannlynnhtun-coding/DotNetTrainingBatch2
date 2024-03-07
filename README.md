@@ -109,22 +109,22 @@ Format / Compress
 API
 HTTP Method
 -----------------
-Get=> Read
-Post=> Ceate
-Put     => Update
-Patch   => Update
-Delete  => Delete
+- Get     => Read
+- Post    => Ceate
+- Put     => Update
+- Patch   => Update
+- Delete  => Delete
 
 HTTP Status Code
 -----------------
-200 - OK
-404 - Not Found
-500 - Internal Server Error
-402, 403, 409
+- 200 - OK
+- 404 - Not Found
+- 500 - Internal Server Error
+- 402, 403, 409
 
-100 - 199
-200 - 299
-300 - 399
+- 100 - 199
+- 200 - 299
+- 300 - 399
 
 [ HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 )
