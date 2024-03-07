@@ -45,6 +45,7 @@ namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
         {
             Nav.NavigateTo($"setup/blog/edit/{id}");
         }
+
         private async Task Delete(int id)
         {
             var parameters = new DialogParameters<ConfirmDialog>();
