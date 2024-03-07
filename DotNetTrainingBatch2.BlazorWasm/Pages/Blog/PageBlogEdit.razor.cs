@@ -27,7 +27,7 @@ namespace DotNetTrainingBatch2.BlazorWasm.Pages.Blog
         {
             string jsonStr = JsonConvert.SerializeObject(item);
             HttpContent content = new StringContent(jsonStr, Encoding.UTF8, MediaTypeNames.Application.Json);
-            var result = await httpClient.PutAsync($"api/blog/{id}", content);
+            var result = await HttpClient.PutAsync($"api/blog/{id}", content);
             if (result.IsSuccessStatusCode)
             {
                 var message = await result.Content.ReadAsStringAsync();
