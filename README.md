@@ -220,7 +220,7 @@ RepoDB
 Middleware For MVC
 
 Deploy WASM
-Deploy on IIS
+[x] Deploy on IIS
 
 ------------------------------------------------------
 
