@@ -225,8 +225,8 @@ Middleware For MVC
 
 ------------------------------------------------------
 
-GraphQL
-gRPC
+- [x] GraphQL
+- [x] gRPC
 
 
 NuGet Package = npm
