@@ -1,4 +1,5 @@
 using DotNetTrainingBatch2.MvcApp;
+using DotNetTrainingBatch2.MvcApp.Middlwares;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
@@ -46,6 +47,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//app.UseMiddleware<CookieMiddleware>();
+
+app.UseCookieMiddleware();
+
 app.UseStaticFiles();
 
 app.UseRouting();

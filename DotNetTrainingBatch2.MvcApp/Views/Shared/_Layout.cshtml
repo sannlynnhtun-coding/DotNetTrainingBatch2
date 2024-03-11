@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DotNetTrainingBatch2.ChatAppUsingSignalR.MvcApp</title>
     @await Html.PartialAsync("_Style")
+    @await RenderSectionAsync("css", required: false)
 </head>
 <body>
     <header>
@@ -23,5 +24,6 @@
     </footer>
 
     @await Html.PartialAsync("_Scripts")
+    @await RenderSectionAsync("scripts", required: false)
 </body>
 </html>
