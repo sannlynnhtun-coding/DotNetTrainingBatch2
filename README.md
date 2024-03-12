@@ -1,4 +1,4 @@
-# .NET Training Batch 2
+# .NET Training Batch 2 (Dec 4, 2023 - Mar 12, 2024)
 
 Blazor Server (Server Side)
 - Db 
