@@ -223,7 +223,7 @@ Database First (Database Table => C# Class)
 
 - [x] [Deploy WASM on Netlify](https://swimburger.net/blog/dotnet/how-to-deploy-blazor-webassembly-to-netlify)
 - [x] [Deploy Blazor Web Assembly on IIS](https://youtu.be/15-TzypV2HU?si=OFWz3yvVE5SflxCJ)
-- [x] Deploy on IIS
+- [x] [Deploy on IIS](https://www.youtube.com/watch?v=kMmZ9SbPBQA)
 
 ------------------------------------------------------
 
