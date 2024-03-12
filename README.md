@@ -217,7 +217,10 @@ RepoDB
     - [x] Blazor Web Server (MVC, no javascript, client to server C#) [Frontend + Backend]
 
 
-Middleware For MVC
+- [x] Middleware For MVC
+    - [x] https://www.aspsnippets.com/Articles/3374/ASPNet-Core-Cookies-Read-Write-Save-and-Remove-Delete-Cookies-in-ASPNet-Core-MVC/
+    - [x] https://dotnettutorials.net/lesson/cookies-in-asp-net-core-mvc/#:~:text=To%20create%20a%20cookie%20in,object%20as%20parameters%20as%20follows.
+    - [x] https://positiwise.com/blog/how-to-use-cookies-in-asp-net-core
 
 - [x] [Deploy WASM on Netlify](https://swimburger.net/blog/dotnet/how-to-deploy-blazor-webassembly-to-netlify)
 - [x] [Deploy Blazor Web Assembly on IIS](https://youtu.be/15-TzypV2HU?si=OFWz3yvVE5SflxCJ)
