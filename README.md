@@ -160,7 +160,6 @@ Database First (Database Table => C# Class)
 - [x] Ado.Net (CRUD)
 - [x] Dapper  (CRUD)
 - [x] EF Entity Framework (Code First => Create Table, Database First => use in Code) (CRUD)
-RepoDB
 
 - [x] Asp.Net Core Web Api (Rest Api)
     - [x] EF
@@ -186,8 +185,8 @@ RepoDB
 
 - [x] Asp.Net Core MVC (submit, ajax)
     - [x] EF 
-    - Ado.Net
-    - Dapper
+    - [x] Ado.Net
+    - [x] Dapper
 
 - [x] Chart [ApexChart, ChartJs, HighCharts, CanvasJS]
 
