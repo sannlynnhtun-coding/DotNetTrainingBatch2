@@ -17,7 +17,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     string connectionString = builder.Configuration.GetConnectionString("DbConnection")!;
     opt.UseSqlServer(connectionString);
-});
+}, ServiceLifetime.Transient, ServiceLifetime.Transient);
+
 //builder.Services.AddScoped<HttpClient>();
 builder.Services.AddScoped(n =>
 {
