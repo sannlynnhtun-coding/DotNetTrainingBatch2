@@ -1,5 +1,4 @@
-
-# DotNetCoreTrainingBatch2
+# .NET Training Batch 2
 
 Blazor Server (Server Side)
 - Db 
